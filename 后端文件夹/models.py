@@ -42,3 +42,7 @@ class AwardsInfo(BaseModel):
     name: str
     awards: str = None
     experience: str = None
+
+class UserInfo(BaseModel):
+    account: int
+    pwd: int

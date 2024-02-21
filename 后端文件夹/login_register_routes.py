@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 import pymysql
 from database import get_db_connection
-from models import Student
+from models import Student, UserInfo
 
 # 避免与fastapi库命名冲突
 router = APIRouter()
@@ -25,14 +25,14 @@ def register(student: Student):
     return {"message": "Student registered successfully"}
 
 @router.post("/login/", tags=["login_register"])
-def login(account: int, pwd: int):
+def login(info: UserInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("SELECT pwd FROM students WHERE account = %s", (account,))
+    cursor.execute("SELECT pwd FROM students WHERE account = %s", (info.account,))
     student_pwd = cursor.fetchone()
     if student_pwd is None:
         raise HTTPException(status_code=404, detail="Account not found")
-    if student_pwd[0] != pwd:
+    if student_pwd[0] != info.pwd:
         raise HTTPException(status_code=401, detail="Incorrect password")
     cursor.close()
     conn.close()
