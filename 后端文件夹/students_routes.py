@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from models import Student
+from models import Student, UserInfo
 import pymysql
 from database import get_db_connection
 from typing import List
@@ -36,7 +36,7 @@ def Insert_student(student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %s, %s, %d, %s, %s)",
                     (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.department, student.periodNum))
     except pymysql.MySQLError as e:
         raise HTTPException(status_code=500, detail="Input information format error.")
@@ -49,8 +49,36 @@ def Insert_student(student: Student):
 def update_student(student_account: int, student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE students SET name = %s, age = %s, position = %s, awards = %s, pwd = %s, department = %s, periodNum = %s WHERE account = %s",
+    cursor.execute("UPDATE students SET name = %s, age = %s, position = %s, awards = %s, pwd = %d, department = %s, periodNum = %s WHERE account = %s",
                    (student.name, student.age, student.position, student.awards, student.pwd, student.department, student.periodNum, student_account))
+    updated = cursor.rowcount
+    cursor.close()
+    conn.close()
+    if updated == 0:
+        raise HTTPException(status_code=404, detail="Student not found")
+    return {"message": "Student updated successfully"}
+
+# 修改密码
+@router.put("/students/{student_account}", tags=["Students"])
+def update_pwd(info: UserInfo):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE students SET pwd = %d WHERE account = %s",
+                   (info.pwd, info.account))
+    updated = cursor.rowcount
+    cursor.close()
+    conn.close()
+    if updated == 0:
+        raise HTTPException(status_code=404, detail="Student not found")
+    return {"message": "Student updated successfully"}
+
+# 重置密码
+@router.put("/students/", tags=["Students"])
+def reset_pwd(student_account: int):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("UPDATE students SET pwd = %d WHERE account = %s",
+                   (123456, student_account))
     updated = cursor.rowcount
     cursor.close()
     conn.close()
