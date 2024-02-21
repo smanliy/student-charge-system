@@ -29,3 +29,10 @@ class AwardsInfo(BaseModel):
     name: str
     experience: str = None
     date_awarded: str = None
+
+class UpdateResponseModel(BaseModel):
+    message: str
+    position: str
+    
+class PositionUpdate(BaseModel):
+    position: str
