@@ -27,5 +27,18 @@ class Student(BaseModel):
 class AwardsInfo(BaseModel):
     account: int
     name: str
+    experience: str = None
+    date_awarded: str = None
+
+class UpdateResponseModel(BaseModel):
+    message: str
+    position: str
+    
+class PositionUpdate(BaseModel):
+    position: str
+
+class AwardsInfo(BaseModel):
+    account: int
+    name: str
     awards: str = None
     experience: str = None
