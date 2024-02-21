@@ -7,7 +7,7 @@ from typing import List
 router = APIRouter()
 
 # 获取所有学生信息
-@router.get("/students/", response_model=List[Student])
+@router.get("/students/", response_model=List[Student], tags=["Students"])
 def read_students():
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -18,7 +18,7 @@ def read_students():
     return students
 
 # 获取单个学生信息
-@router.get("/students/{student_account}", response_model=Student)
+@router.get("/students/{student_account}", response_model=Student, tags=["Students"])
 def read_student(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -31,7 +31,7 @@ def read_student(student_account: int):
     return student
 
 # 添加新学生
-@router.post("/students/")
+@router.post("/students/", tags=["Students"])
 def create_student(student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -42,7 +42,7 @@ def create_student(student: Student):
     return {"message": "Student added successfully"}
 
 # 更新学生信息
-@router.put("/students/{student_account}")
+@router.put("/students/{student_account}", tags=["Students"])
 def update_student(student_account: int, student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -56,7 +56,7 @@ def update_student(student_account: int, student: Student):
     return {"message": "Student updated successfully"}
 
 # 删除学生信息
-@router.delete("/students/{student_account}")
+@router.delete("/students/{student_account}", tags=["Students"])
 def delete_student(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()

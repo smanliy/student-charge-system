@@ -7,7 +7,7 @@ from typing import List
 router = APIRouter()
 
 #获取学生的获奖信息
-@router.get("/awardsinfo/", response_model=List[AwardsInfo])
+@router.get("/awardsinfo/", response_model=List[AwardsInfo], tags=["awards"])
 def read_student_awards():
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -18,7 +18,7 @@ def read_student_awards():
     return awards
 
 #获取单个学生获奖信息
-@router.get("/awardsinfo/{Awardsinfo_account}", response_model=AwardsInfo)
+@router.get("/awardsinfo/{Awardsinfo_account}", response_model=AwardsInfo, tags=["awards"])
 def read_student(AwardsInfo_account: int):
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
@@ -31,7 +31,7 @@ def read_student(AwardsInfo_account: int):
 # 如果未找到学生获奖信息，返回404错误
 
 #添加获奖信息及经历
-@router.post("/awardsinfo/")
+@router.post("/awardsinfo/", tags=["awards"])
 def create_awards(Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -42,7 +42,7 @@ def create_awards(Students_awards: AwardsInfo):
     return {"message": "Student's awards added successfully"}
 
 #更新获奖信息
-@router.put("/awardsinfo/{AwardsInfo_account}")
+@router.put("/awardsinfo/{AwardsInfo_account}", tags=["awards"])
 def update_awards(AwardsInfo_account: int, Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -56,7 +56,7 @@ def update_awards(AwardsInfo_account: int, Students_awards: AwardsInfo):
     return {"message": "Student's awards updated successfully"}
 
 #删除获奖经历
-@router.delete("/awardsinfo/{AwardsInfo_account}")
+@router.delete("/awardsinfo/{AwardsInfo_account}", tags=["awards"])
 def delete_awards(AwardsInfo_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()
