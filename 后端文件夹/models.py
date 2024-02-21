@@ -3,10 +3,10 @@ from typing import Optional
 from enum import Enum
 
 class PeriodNum(str, Enum):
-    admin = "管理员"
     six = "六期"
     seven = "七期"
     eight = "八期"
+    admin = "管理员"
 
 class Department(str, Enum):
     data_science = "数据科学"
