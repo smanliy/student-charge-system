@@ -30,13 +30,16 @@ def read_student(student_account: int):
         raise HTTPException(status_code=404, detail="Student not found")
     return student
 
-# 添加新学生
+# 向数据库插入学生账号
 @router.post("/students/", tags=["Students"])
-def create_student(student: Student):
+def Insert_student(student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-                   (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.department, student.periodNum))
+    try:
+        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                    (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.department, student.periodNum))
+    except pymysql.MySQLError as e:
+        raise HTTPException(status_code=500, detail="Input information format error.")
     cursor.close()
     conn.close()
     return {"message": "Student added successfully"}
