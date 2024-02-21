@@ -1,9 +1,10 @@
-from fastapi import FastAPI, HTTPException, Body
+from fastapi import APIRouter, HTTPException
 import pymysql
 from database import get_db_connection
 from models import Student
 
-router = FastAPI()
+# 避免与fastapi库命名冲突
+router = APIRouter()
 
 # 注册
 @router.post("/register/", tags=["login_register"])
