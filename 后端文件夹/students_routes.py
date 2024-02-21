@@ -59,7 +59,7 @@ def update_student(student_account: int, student: Student):
     return {"message": "Student updated successfully"}
 
 # 修改密码
-@router.put("/students/{student_account}", tags=["Students"])
+@router.put("/students/{student_account}", tags=["Students"], summary="请求体输入账号和新的密码，将账号对应用户密码改成新输入的密码")
 def update_pwd(info: UserInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -73,7 +73,7 @@ def update_pwd(info: UserInfo):
     return {"message": "Student updated successfully"}
 
 # 重置密码
-@router.put("/students/", tags=["Students"])
+@router.put("/students/", tags=["Students"], summary="查询参数为需要重置密码的账号, 将对应账号的密码改成123456")
 def reset_pwd(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()
