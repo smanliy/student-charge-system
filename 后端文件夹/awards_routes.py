@@ -17,6 +17,19 @@ def read_student_awards():
     conn.close()
     return awards
 
+#获取单个学生获奖信息
+@router.get("/awardsinfo/{Awardsinfo_account}", response_model=AwardsInfo)
+def read_student(AwardsInfo_account: int):
+    conn = get_db_connection()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    cursor.execute("SELECT * FROM AwardsInfo WHERE account = %s", (AwardsInfo_account,))
+    student = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    if student is None:
+        raise HTTPException(status_code=404, detail="Student‘s awards not found")
+# 如果未找到学生获奖信息，返回404错误
+
 #添加获奖信息及经历
 @router.post("/awardsinfo/")
 def create_awards(Students_awards: AwardsInfo):
@@ -47,7 +60,7 @@ def update_awards(AwardsInfo_account: int, Students_awards: AwardsInfo):
 def delete_awards(AwardsInfo_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM students_awards WHERE account = %s", (AwardsInfo_account,))
+    cursor.execute("DELETE FROM AwardsInfo WHERE account = %s", (AwardsInfo_account,))
     deleted = cursor.rowcount
     cursor.close()
     conn.close()
