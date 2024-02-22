@@ -24,10 +24,10 @@ class Student(BaseModel):
     department: Department
 
 class AwardsInfo(BaseModel):
-    account: str
+    account: int
     name: str
+    awards: str = None
     experience: str = None
-    date_awarded: str = None
 
 class UpdateResponseModel(BaseModel):
     message: str
