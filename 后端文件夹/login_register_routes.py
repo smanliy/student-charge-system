@@ -16,7 +16,7 @@ def register(student: Student):
     if cursor.fetchone():
         raise HTTPException(status_code=400, detail="Account already registered")
     try:
-        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %s, %s, %d, %s, %s)",
                     (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.department, student.periodNum))
     except pymysql.MySQLError as e:
         raise HTTPException(status_code=500, detail="Input information format error.")
