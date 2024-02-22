@@ -77,7 +77,7 @@ def update_pwd(info: UserInfo):
     return {"message": "Student updated successfully"}
 
 # 重置密码
-@router.put("/students/changepwd/", tags=["Students"], summary="重置密码 查询参数为需要重置密码的账号, 将对应账号的密码改成123456")
+@router.put("/students/changepwd/{student_account}", tags=["Students"], summary="重置密码 查询参数为需要重置密码的账号, 将对应账号的密码改成123456")
 def reset_pwd(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()
