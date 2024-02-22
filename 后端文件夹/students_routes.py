@@ -36,7 +36,7 @@ def Insert_student(student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
     try:
-        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %s, %s, %d, %s, %s)",
+        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %d, %s, %d, %s, %s)",
                     (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.department, student.periodNum))
     except pymysql.MySQLError as e:
         raise HTTPException(status_code=500, detail="Input information format error.")
@@ -49,7 +49,7 @@ def Insert_student(student: Student):
 def update_student(student_account: int, student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE students SET name = %s, age = %s, position = %s, awards = %s, pwd = %d, department = %s, periodNum = %s WHERE account = %s",
+    cursor.execute("UPDATE students SET name = %s, age = %s, position = %s, awards = %d, pwd = %d, department = %s, periodNum = %s WHERE account = %s",
                    (student.name, student.age, student.position, student.awards, student.pwd, student.department, student.periodNum, student_account))
     updated = cursor.rowcount
     cursor.close()
@@ -59,7 +59,7 @@ def update_student(student_account: int, student: Student):
     return {"message": "Student updated successfully"}
 
 # 修改密码
-@router.put("/students/{student_account}", tags=["Students"], summary="请求体输入账号和新的密码，将账号对应用户密码改成新输入的密码")
+@router.put("/students/{student_account}", tags=["Students"], summary="修改密码 请求体输入账号和新的密码，将账号对应用户密码改成新输入的密码")
 def update_pwd(info: UserInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -73,7 +73,7 @@ def update_pwd(info: UserInfo):
     return {"message": "Student updated successfully"}
 
 # 重置密码
-@router.put("/students/", tags=["Students"], summary="查询参数为需要重置密码的账号, 将对应账号的密码改成123456")
+@router.put("/students/", tags=["Students"], summary="重置密码 查询参数为需要重置密码的账号, 将对应账号的密码改成123456")
 def reset_pwd(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()

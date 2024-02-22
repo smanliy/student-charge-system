@@ -16,16 +16,16 @@ class Department(str, Enum):
 
 class Student(BaseModel):
     name: str
-    age: Optional[int] = None
+    age: Optional[str] = None
     position: Optional[str] = None
-    awards: Optional[str] = None
-    account: int
-    pwd: int
+    awards: Optional[str] = 0
+    account: str
+    pwd: str
     periodNum: PeriodNum
     department: Department
 
 class AwardsInfo(BaseModel):
-    account: int
+    account: str
     name: str
     experience: str = None
     date_awarded: str = None
@@ -37,12 +37,6 @@ class UpdateResponseModel(BaseModel):
 class PositionUpdate(BaseModel):
     position: str
 
-class AwardsInfo(BaseModel):
-    account: int
-    name: str
-    awards: str = None
-    experience: str = None
-
 class UserInfo(BaseModel):
-    account: int
-    pwd: int
+    account: str
+    pwd: str
