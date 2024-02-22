@@ -40,8 +40,8 @@ def Insert_student(student: Student):
     if cursor.fetchone():
         raise HTTPException(status_code=400, detail="Account already registered")
     try:
-        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, periodNum, department) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-                    (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.periodNum, student.department))
+        cursor.execute("INSERT INTO students (name, position, awards, account, pwd, periodNum, department) VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                    (student.name, student.position, student.awards, student.account, student.pwd, student.periodNum, student.department))
     except pymysql.MySQLError as e:
         raise HTTPException(status_code=500, detail="Input information format error.")
     cursor.close()
@@ -51,12 +51,10 @@ def Insert_student(student: Student):
 # 更新学生信息
 @router.put("/students/{student_account}", tags=["Students"], summary="更新学生信息 路径参数中的账号与请求体中输入的账号必须一致, 否则返回500报错")
 def update_student(student_account: int, student: Student):
-    if student_account is not student.account:
-        raise HTTPException(status_code=500, detail="Not allow update account number")
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE students SET name = %s, age = %s, position = %s, awards = %s, pwd = %s, department = %s, periodNum = %s WHERE account = %s",
-                   (student.name, student.age, student.position, student.awards, student.pwd, student.department, student.periodNum, student_account))
+    cursor.execute("UPDATE students SET name = %s, position = %s, awards = %s, pwd = %s, department = %s, periodNum = %s WHERE account = %s",
+                   (student.name, student.position, student.awards, student.pwd, student.department, student.periodNum, student_account))
     updated = cursor.rowcount
     cursor.close()
     conn.close()
