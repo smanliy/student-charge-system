@@ -65,11 +65,11 @@ def update_student(student_account: int, student: Student):
     return {"message": "Student updated successfully"}
 
 # 修改密码
-@router.put("/students/changepwd/{student_account}", tags=["Students"], summary="修改密码 请求体输入账号和新的密码，将账号对应用户密码改成新输入的密码")
+@router.put("/students/changepwd/", tags=["Students"], summary="修改密码 请求体输入账号和新的密码，将账号对应用户密码改成新输入的密码")
 def update_pwd(info: UserInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE students SET pwd = %d WHERE account = %s",
+    cursor.execute("UPDATE students SET pwd = %s WHERE account = %s",
                    (info.pwd, info.account))
     updated = cursor.rowcount
     cursor.close()
@@ -83,7 +83,7 @@ def update_pwd(info: UserInfo):
 def reset_pwd(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE students SET pwd = %d WHERE account = %s",
+    cursor.execute("UPDATE students SET pwd = %s WHERE account = %s",
                    (123456, student_account))
     updated = cursor.rowcount
     cursor.close()
