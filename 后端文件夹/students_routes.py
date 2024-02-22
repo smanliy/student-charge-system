@@ -35,9 +35,13 @@ def read_student(student_account: int):
 def Insert_student(student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()
+    # 查询是否已存在账号
+    cursor.execute("SELECT account FROM students WHERE account = %s", (student.account,))
+    if cursor.fetchone():
+        raise HTTPException(status_code=400, detail="Account already registered")
     try:
-        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, department, periodNum) VALUES (%s, %s, %s, %d, %s, %d, %s, %s)",
-                    (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.department, student.periodNum))
+        cursor.execute("INSERT INTO students (name, age, position, awards, account, pwd, periodNum, department) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
+                    (student.name, student.age, student.position, student.awards, student.account, student.pwd, student.periodNum, student.department))
     except pymysql.MySQLError as e:
         raise HTTPException(status_code=500, detail="Input information format error.")
     cursor.close()

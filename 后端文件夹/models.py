@@ -18,7 +18,7 @@ class Student(BaseModel):
     name: str
     age: Optional[str] = None
     position: Optional[str] = None
-    awards: Optional[str] = 0
+    awards: Optional[str] = "0"
     account: str
     pwd: str
     periodNum: PeriodNum
