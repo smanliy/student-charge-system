@@ -13,6 +13,8 @@ class Department(str, Enum):
     Full_stack = "全栈"
     CPU_OS = "CPU&OS"
     JAVA = "JAVA"
+    devise = "设计"
+    secretariat = "秘书处"
 
 class Student(BaseModel):
     name: str

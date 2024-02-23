@@ -67,13 +67,14 @@ def update_student(student_account: int, student: Student):
 def update_pwd(info: UserInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
+    # 查询是否存在账号
+    cursor.execute("SELECT account FROM students WHERE account = %s", (info.account,))
+    if not cursor.fetchone():
+        raise HTTPException(status_code=400, detail="Student not found")
     cursor.execute("UPDATE students SET pwd = %s WHERE account = %s",
                    (info.pwd, info.account))
-    updated = cursor.rowcount
     cursor.close()
     conn.close()
-    if updated == 0:
-        raise HTTPException(status_code=404, detail="Student not found")
     return {"message": "Student updated successfully"}
 
 # 重置密码
@@ -81,13 +82,14 @@ def update_pwd(info: UserInfo):
 def reset_pwd(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()
+    # 查询是否存在账号
+    cursor.execute("SELECT account FROM students WHERE account = %s", (student_account,))
+    if not cursor.fetchone():
+        raise HTTPException(status_code=400, detail="Student not found")
     cursor.execute("UPDATE students SET pwd = %s WHERE account = %s",
-                   (123456, student_account))
-    updated = cursor.rowcount
+                   ("123456", student_account))
     cursor.close()
     conn.close()
-    if updated == 0:
-        raise HTTPException(status_code=404, detail="Student not found")
     return {"message": "Student updated successfully"}
 
 # 删除学生信息
