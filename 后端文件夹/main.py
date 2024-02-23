@@ -12,7 +12,7 @@ app.include_router(awards_router)
 app.include_router(position_router)
 app.include_router(login_register_router)
 
-# 配置CORS
+# 允许所有ip跨域
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
