@@ -51,7 +51,7 @@ def name_read_students(student_name: str):
         combined_info.append(Student_AwardsInfo(student_Model=Student(**student), awardsInfo_Model=[AwardsInfo(**award) for award in awardsinfo]))
     cursor.close()
     conn.close()
-    if students is None:  # 如果未找到学生，返回404错误
+    if not students:  # 如果未找到学生，返回404错误
         raise HTTPException(status_code=404, detail="Student not found")
     return combined_info
 
