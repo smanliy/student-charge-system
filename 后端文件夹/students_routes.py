@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from models import Student, UserInfo
+from models import AwardsInfo, Student, UserInfo, Student_AwardsInfo
 import pymysql
 from database import get_db_connection
 from typing import List
@@ -7,41 +7,53 @@ from typing import List
 router = APIRouter()
 
 # 获取所有学生信息
-@router.get("/students/", response_model=List[Student], tags=["Students"])
+@router.get("/students/getinfo_all/", response_model=List[Student_AwardsInfo], tags=["Students"], summary = "获取所有学生信息")
 def read_students():
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
     cursor.execute("SELECT * FROM students")
     students = cursor.fetchall()
+    combined_info = []
+    for student in students:
+        cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (student["account"]))
+        awardsinfo = cursor.fetchall()
+        combined_info.append(Student_AwardsInfo(student_Model=Student(**student), awardsInfo_Model=[AwardsInfo(**award) for award in awardsinfo]))
     cursor.close()
     conn.close()
-    return students
+    return combined_info
 
 # 账号获取单个学生信息
-@router.get("/students/{student_account}", response_model=List[Student], tags=["Students"], summary = "通过账号获取学生信息")
+@router.get("/students/getinfo_acc/{student_account}", response_model=Student_AwardsInfo, tags=["Students"], summary = "通过账号获取学生信息")
 def account_read_student(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
-    cursor.execute("SELECT * FROM students WHERE name = %s", (student_account))
-    students = cursor.fetchone()
-    cursor.close()
-    conn.close()
-    if students is None:  # 如果未找到学生，返回404错误
-        raise HTTPException(status_code=404, detail="Student not found")
-    return students
-
-# 姓名获取单个学生信息
-@router.get("/students/{student_name}", response_model=Student, tags=["Students"], summary = "通过姓名获取学生信息")
-def name_read_student(student_name: int):
-    conn = get_db_connection()
-    cursor = conn.cursor(pymysql.cursors.DictCursor)
-    cursor.execute("SELECT * FROM students WHERE account = %s", (student_name))
-    student = cursor.fetchall()
+    cursor.execute("SELECT * FROM students WHERE account = %s", (student_account))
+    student = cursor.fetchone()
+    cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (student_account))
+    awardsinfo = cursor.fetchall()
     cursor.close()
     conn.close()
     if student is None:  # 如果未找到学生，返回404错误
         raise HTTPException(status_code=404, detail="Student not found")
-    return student
+    return Student_AwardsInfo(student_Model=Student(**student), awardsInfo_Model=[AwardsInfo(**award) for award in awardsinfo])
+
+# 姓名获取单个学生信息
+@router.get("/students/getinfo_name/{student_name}", response_model=List[Student_AwardsInfo], tags=["Students"], summary = "通过姓名获取学生信息")
+def name_read_students(student_name: str):
+    conn = get_db_connection()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    cursor.execute("SELECT * FROM students WHERE name = %s", (student_name))
+    students = cursor.fetchall()
+    combined_info = []
+    for student in students:
+        cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (student["account"]))
+        awardsinfo = cursor.fetchall()
+        combined_info.append(Student_AwardsInfo(student_Model=Student(**student), awardsInfo_Model=[AwardsInfo(**award) for award in awardsinfo]))
+    cursor.close()
+    conn.close()
+    if students is None:  # 如果未找到学生，返回404错误
+        raise HTTPException(status_code=404, detail="Student not found")
+    return combined_info
 
 # 向数据库插入学生账号
 @router.post("/students/", tags=["Students"], summary = "向数据库插入学生账号")

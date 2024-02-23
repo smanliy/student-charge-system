@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 from enum import Enum
 
 class PeriodNum(str, Enum):
@@ -19,7 +19,7 @@ class Department(str, Enum):
 class Student(BaseModel):
     name: str
     position: Optional[str] = None
-    awards_account: Optional[str] = "无"
+    awards: Optional[str] = "无"
     account: str
     pwd: str
     periodNum: PeriodNum
@@ -41,3 +41,7 @@ class PositionUpdate(BaseModel):
 class UserInfo(BaseModel):
     account: str
     pwd: str
+
+class Student_AwardsInfo(BaseModel):
+    student_Model: Student
+    awardsInfo_Model: List[AwardsInfo]
