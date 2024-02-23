@@ -17,13 +17,26 @@ def read_students():
     conn.close()
     return students
 
-# 获取单个学生信息
-@router.get("/students/{student_account}", response_model=Student, tags=["Students"])
-def read_student(student_account: int):
+# 账号获取单个学生信息
+@router.get("/students/{student_account}", response_model=List[Student], tags=["Students"], summary = "通过账号获取学生信息")
+def account_read_student(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
-    cursor.execute("SELECT * FROM students WHERE account = %s", (student_account,))
-    student = cursor.fetchone()
+    cursor.execute("SELECT * FROM students WHERE name = %s", (student_account))
+    students = cursor.fetchone()
+    cursor.close()
+    conn.close()
+    if students is None:  # 如果未找到学生，返回404错误
+        raise HTTPException(status_code=404, detail="Student not found")
+    return students
+
+# 姓名获取单个学生信息
+@router.get("/students/{student_name}", response_model=Student, tags=["Students"], summary = "通过姓名获取学生信息")
+def name_read_student(student_name: int):
+    conn = get_db_connection()
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    cursor.execute("SELECT * FROM students WHERE account = %s", (student_name))
+    student = cursor.fetchall()
     cursor.close()
     conn.close()
     if student is None:  # 如果未找到学生，返回404错误
@@ -31,7 +44,7 @@ def read_student(student_account: int):
     return student
 
 # 向数据库插入学生账号
-@router.post("/students/", tags=["Students"])
+@router.post("/students/", tags=["Students"], summary = "向数据库插入学生账号")
 def Insert_student(student: Student):
     conn = get_db_connection()
     cursor = conn.cursor()

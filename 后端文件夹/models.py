@@ -19,14 +19,14 @@ class Department(str, Enum):
 class Student(BaseModel):
     name: str
     position: Optional[str] = None
-    awards: Optional[str] = "0"
+    awards_account: Optional[str] = "无"
     account: str
     pwd: str
     periodNum: PeriodNum
     department: Department
 
 class AwardsInfo(BaseModel):
-    account: Optional[str] = "0"
+    account: str
     name: str
     awards: Optional[str] = None
     experience: Optional[str] = None
