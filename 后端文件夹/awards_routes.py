@@ -8,7 +8,7 @@ router = APIRouter()
 
 #获取学生的获奖信息
 @router.get("/awardsinfo/", response_model=List[AwardsInfo], tags=["awards"])
-def read_student_awards():
+def read_students_awards():
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
     cursor.execute("SELECT * FROM awardsinfo")
@@ -18,8 +18,8 @@ def read_student_awards():
     return awards
 
 #获取单个学生获奖信息
-@router.get("/awardsinfo/{Awardsinfo_account}", response_model=AwardsInfo, tags=["awards"])
-def read_student(AwardsInfo_account: int):
+@router.get("/awardsinfo/{AwardsInfo_account}", response_model=AwardsInfo, tags=["awards"])
+def read_student_awards(AwardsInfo_account: int):
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
     cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (AwardsInfo_account,))
