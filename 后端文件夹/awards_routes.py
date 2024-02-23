@@ -22,14 +22,12 @@ def read_student_awards():
 def read_student(AwardsInfo_account: int):
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
-    # 查询是否已存在账号
-    cursor.execute("SELECT account FROM Awardsinfo WHERE account = %s", (AwardsInfo_account,))
-    if not cursor.fetchone():
-        raise HTTPException(status_code=400, detail="Account already registered")
     cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (AwardsInfo_account,))
     AwardsInfo = cursor.fetchone()
     cursor.close()
     conn.close()
+    if AwardsInfo is None:  # 如果未找到学生，返回404错误
+        raise HTTPException(status_code=404, detail="Awardsinfo not found")
     return AwardsInfo
 
 #添加获奖信息及经历
