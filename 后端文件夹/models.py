@@ -24,7 +24,7 @@ class Student(BaseModel):
     department: Department
 
 class AwardsInfo(BaseModel):
-    account: int
+    account: str = "0"
     name: str
     awards: str = None
     experience: str = None

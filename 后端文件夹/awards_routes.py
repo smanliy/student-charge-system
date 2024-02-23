@@ -35,7 +35,7 @@ def read_student(AwardsInfo_account: int):
 def create_awards(Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("INSERT INTO students (account ,name, awards, experience) VALUES (%s, %s, %s, %s)",
+    cursor.execute("INSERT INTO awardsinfo (account ,name, awards, experience) VALUES (%s, %s, %s, %s)",
                    (Students_awards.account,Students_awards.name, Students_awards.awards, Students_awards.experience))
     cursor.close()
     conn.close()
@@ -46,7 +46,7 @@ def create_awards(Students_awards: AwardsInfo):
 def update_awards(AwardsInfo_account: int, Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("UPDATE students SET name = %s, experience = %s, awards = %s WHERE account = %s",
+    cursor.execute("UPDATE awardsinfo SET name = %s, experience = %s, awards = %s WHERE account = %s",
                    (Students_awards.name, Students_awards.experience, Students_awards.awards, AwardsInfo_account))
     updated = cursor.rowcount
     cursor.close()
