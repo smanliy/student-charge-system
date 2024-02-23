@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生登录成功</title>
+    <link rel="stylesheet" href="../css/students-login-success.css">
+</head>
+<body>
+    <div class="center">
+
+    <!-- 背景开始 -->
+    <div class="bg">
+        <div class="title">
+            <img src="https://typora----magic.oss-cn-beijing.aliyuncs.com/yunding--logo.png"/>
+            <div class="ch-title">云顶书院</div>
+            <div class="en-title">YUNDING ACADEMY</div>
+        </div>
+        <!-- 导航栏开始 -->
+        <div class="nav">
+            <div class="search">
+            <span id="one">首页</span>
+            <span id="two">个人中心</span>
+            <span id="three">研学查询</span>
+            <span id="four">请假申请</span>
+            <span id="five">联系我们</span>
+            </div>
+        </div>
+        <!-- 导航栏结束 -->
+    </div>
+    <!-- 背景结束 -->
+
+    <!-- 下半部分开始 -->
+    <div id="none-block">
+
+        <!-- 首页开始 -->
+        <div class="item" id="shouYe">学生管理信息首页</div>
+        <!-- 首页结束 -->
+
+        <!-- 个人中心开始 -->
+        <div class="item" style="display: none;">
+        <!-- 个人中心导航栏 -->
+        <div class="left">
+            <span id="per-center">个人中心</span>
+            <span id="per-infor">个人信息</span>
+            <span id="modify-infor">修改个人信息</span>
+            <span id="delete-infor">删除个人信息</span>
+            <span id="search-awards">查看个人奖项</span>
+            <span id="modify-awards">修改个人奖项</span>
+        </div>
+        <!-- 个人信息 -->
+        <div class="right">
+            <div class="name">姓名：<span class="getname"></span></div>
+            <div class="account">学号：<span class="getaccount"></span></div>
+            <div class="direction">方向：<span class="getdirection"></span></div>
+            <div class="periodNum">期数：<span class="getperiodNum"></span></div>
+            <div class="position">职位：<span class="getposition"></span></div>
+        </div>
+        <!-- 修改个人信息 -->
+        <div class="right"  style="display: none;">
+            <div class="name">姓名：<input class="getname" id="grayname"></div>
+            <div class="account">学号：<input type="text" class="getaccount" id="grayaccount"></div>
+            <div class="direction">方向：<input type="text" class="getdirection" id="graydirection"></div>
+            <div class="periodNum">期数：<input type="text" class="getperiodNum" id="grayperiodNum"></div>
+            <div class="pwd">密码：<input type="text" class="getpwd" id="graypwd"></div>
+            <div class="awards">奖项：<input type="text" class="getawards" id="getawards"></div>
+            <div class="position">职位：<textarea  rols="4" cols="10" class="getposition" id="grayposition"></textarea></div>
+            <button id="modifybtn">确认修改</button>
+        </div>
+         <!-- 删除个人信息 -->
+         <div class="right" style="display: none;"> 
+            <div class="name">姓名：<span class="getname"></span></div>
+            <div class="account">学号：<span class="getaccount"></span></div>
+            <div class="direction">方向：<span class="getdirection"></span></div>
+            <div class="periodNum">期数：<span class="getperiodNum"></span></div>
+            <div class="awards">奖项：<span class="getawards"></span></div>
+            <div class="position">职位：<span class="getposition"></span></div>
+            <button id="deletebtn">删除个人信息</button>
+        </div>
+        <!-- 查看个人奖项 -->
+        <div class="right"  style="display: none;">
+            <div class="name">姓名：<div class="getname getnamea" ></div></div>
+            <div class="account">学号：<div  class="getaccount getaccounta" ></div></div>
+            <div class="awards">奖项：<div class="getawards getawardsa" ></div></div>
+            <div class="experice expericea expericesearch">获奖经历：<div class="getexperice getexpericea" ></div></div>
+        </div>
+        <!-- 修改个人奖项 -->
+        <div class="right"  style="display: none;">
+            <div class="name">姓名：<input class="getname " id="grayname"></div>
+            <div class="account">学号：<input  class="getaccount " id="grayaccount"></div>
+            <div class="awards">奖项：<textarea cols="3" rows="4" class="getawards getawardsa" id="grayawards"></textarea></div>
+            <div class="experice">获奖经历：<textarea cols="3" rows="4" class="getexperice " id="grayexperice"></textarea></div>
+            <button id="modify-infor-awards">确认修改</button>
+        </div>
+        </div>
+    <!-- 个人中心结束 -->
+    
+    <!-- 研学查询开始 -->
+    <div class="item" style="display: none;">
+        <div class="study-search">
+            <div id="study-search-title">研学查询</div>
+            <div id="Mon">星期一</div>
+            <div id="Tue">星期二</div>
+            <div id="Thir">星期三</div>
+            <div id="Thur">星期四</div>
+            <div id="Fri">星期五</div>
+        </div>
+        <div class="study-right"></div>
+    </div>
+    <!-- 研学查询结束 -->
+
+    <!-- 请假申请开始 -->
+    <div class="item" style="display: none;">
+        <div class="leave-application">请假申请</div>
+        <div class="leave-application-right">
+            <div id="leave-application-time">请假时间</div>
+            <div id="input-application-time"><textarea cols="6" rows="20"></textarea></div>
+            <div id="leave-application-account">请假原因</div>
+            <div id="input-application-time"><textarea></textarea></div>
+            <button id="cancle">取消</button>
+            <button id="decide">提交</button>
+        </div>
+    </div>
+    <!-- 请假申请结束 -->
+
+    <!-- 联系我们开始 -->
+    <div class="item" style="display: none;">
+        <div class="corrlete-with-us">
+            <div id="corrlete-with-us-title">联系我们</div>
+            <div id="opinion">意见箱</div>
+            <div id="tel">联系电话</div>
+        </div>
+        <div class="content">
+            <div class="opinionone">
+                <pre>各位同学：    
+    意见箱用来了解和解决网站使用方面的实际问题，意见，希望信件内容清楚，问题具体，表述清晰。
+    意见箱：xxxxxxxx
+    感谢你的宝贵意见！
+                                                                                                                                                云顶书院</pre>
+            </div>
+            <div class="teltwo" style="display: none;">
+                <pre>联系电话:xxxxxxxxxx</pre>
+            </div>
+        </div>
+    </div>
+   <!-- 联系我们结束 -->
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/students-login-success.js"></script>
+</body>
+</html>

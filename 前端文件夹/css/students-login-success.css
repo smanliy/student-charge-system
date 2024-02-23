@@ -1,0 +1,423 @@
+/* 初始化css */
+*{
+    margin: 0;
+    padding: 0;
+}
+.center{
+    width: 1920px;
+    height: 1700px;
+    margin: 0 auto;
+}
+/* 背景图 */
+img{
+    position: relative;
+    left: -39px;
+    float: left;
+    width: 212px;
+    height: 149px;
+    
+}
+.bg{
+    background: url("https://typora----magic.oss-cn-beijing.aliyuncs.com/%E5%AD%A6%E7%94%9F%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F%E8%83%8C%E6%99%AF.jpg");
+    background-repeat: no-repeat;
+}
+/* 文字 */
+.title{
+    height: 150px;
+}
+.ch-title{
+    padding-top: 30px;
+    float: left;
+    color: white;
+    font-weight: 900;
+    font-size: 35px;
+}
+.en-title{
+    position: relative;
+    top:80px ;
+    left: -136px;
+    color: white;
+    font-size: 20px;
+}
+/* 导航栏 */
+.search{
+    margin-left: 20px;
+}
+.nav{
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+.search{
+    display: flex;
+    width: 800px;
+}
+#one,
+#two,
+#three,
+#four,
+#five{
+    display: inline-block;
+    flex: 1;
+    width: 80px;
+    color: white;
+    font-size: 20px;
+}
+#one{
+    color: #176BB9;
+    background-color: white;
+}
+#shouYe{
+    width: 1800px;
+    height: 800px;
+    margin: 20px 60px;
+    text-align: center;
+    line-height: 800px;
+    font-size: 25px;
+    background-color: #C6D1E0;
+}
+.item .left{
+    display: flex;
+    flex-direction:column;
+    width: 190px;
+    height: 230px;
+    margin-top:100px;
+    margin-left: 30px;
+
+}
+#per-center{
+    line-height: 75px;
+    flex: 1.5;
+    padding-left: 10px;
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+    border-top: 1px gray solid;
+    border-left: 1px gray solid;
+    border-right:1px gray solid ;
+    background-color: #1D54B8;
+}
+#per-infor,
+#modify-infor,
+#delete-infor,
+#search-awards,
+#modify-awards
+{
+    flex: 1;
+    line-height: 50px;
+    padding-left: 10px;
+    font-size: 20px;
+    border-top: 1px gray solid;
+    border-left: 1px gray solid;
+    border-right:1px gray solid ;
+}
+#per-infor{
+    color: #176BB9;
+    background-color: #D9D9D9;
+}
+#modify-awards{
+    border-bottom: 1px gray solid ;
+}
+#modifybtn{
+    position: relative;
+    top: 205px;
+    left: 255px;
+    width: 170px;
+    height: 60px;
+    font-size: 25px;
+    border-radius: 30px;
+
+    border: none;
+}
+#modifybtn:hover,
+#modify-infor-awards:hover{
+    color: white;
+    background-color: red;
+}
+#modify-infor-awards{
+    position: relative;
+    top: 235px;
+    left: 290px;
+    width: 270px;
+    height: 60px;
+    font-size: 30px;
+    margin-top: 200px;
+    border: none;
+    border-radius: 30px;
+}
+/* 删除信息 */
+#deletebtn{
+    position: relative;
+    left: 290px;
+    width: 270px;
+    height: 60px;
+    font-size: 30px;
+    margin-top: 200px;
+    border: none;
+    border-radius: 30px;
+}
+
+#deletebtn:hover{
+    color: white;
+    background-color: red;
+}
+.item .right{
+    position: relative;
+    width: 500px;
+    height: 400px;
+    left: 313px;
+    top: -230px;
+}
+.item .right div{
+    height: 60px;
+    font-size: 25px;
+    line-height: 60px;
+}
+/* 修正输入框 */
+.right input, textarea{
+    width: 398px;
+    height: 10px;
+    color: black;
+    font-size: 24px;
+    padding: 20px 0;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+}
+textarea{
+    font-family: Arial;
+    font-weight: normal;
+}
+#grayname,
+#grayaccount,
+#graydirection,
+#grayperiodNum,
+#graypwd
+{
+    display: inline-block;
+    width:400px;
+    /* font-size: 20px; */
+    border-radius: 20px;
+    background:#D9D9D9;
+}
+.name,
+.account,
+.direction,
+.periodNum{
+    margin-bottom: 10px;
+}
+.right{
+    border-top: 2px black solid;
+}
+#grayawards,
+#grayposition
+{
+    position: relative;
+    left: 75px;
+    width: 600px;
+    height: 100px;
+    border-radius: 20px;
+    background:#D9D9D9;
+}
+.experice{
+    position: relative;
+    top: 175px;
+    left: 0px;
+}
+.expericesearch{
+    position: relative;
+    top: 22px;
+    left: 0px;
+}
+#grayexperice{
+    width: 600px;
+    height: 100px;
+    border-radius: 20px;
+    background:#D9D9D9;
+}
+/* 研学查询 */
+.study-search{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    height: 325px;
+    margin-top:100px;
+    margin-left: 30px;
+}
+#study-search-title{
+    flex: 1.5;
+    line-height: 75px;
+    font-weight: 900;
+    padding-left: 20px;
+    color: white;
+    font-size: 30px;background-color: #1D54B8 ;
+    border-top: 1px gray solid;
+    border-left: 1px gray solid;
+    border-right:1px gray solid ;
+}
+#Mon,
+#Tue,
+#Thir,
+#Thur,
+#Fri{
+    flex: 1;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border-top: 1px gray solid;
+    border-left: 1px gray solid;
+    border-right:1px gray solid ;
+}
+#Mon{
+    color: #176BB9;
+    background-color:#D9D9D9 ;
+}
+#Fri{
+    border-bottom: 1px gray solid;
+}
+.study-right{
+    position: relative;
+    width: 800px;
+    height: 400px;
+    left: 340px;
+    top: -325px;
+    border-top: 1px black solid;
+}
+
+/* 请假申请 开始*/
+.leave-application{
+    width: 230px;
+    height: 75px;
+    margin-top:100px;
+    margin-left: 30px;
+    line-height: 75px;
+    font-weight: 900;
+    padding-left: 20px;
+    color: white;
+    font-size: 30px;
+    background-color: #1D54B8 ;
+}
+.leave-application-right{
+    position: relative;
+    width: 1500px;
+    height: 1100px;
+    left: 355px;
+    top: -75px;
+    
+    border-top: 1px solid black;
+    /* background-color: #a42525; */
+}
+#leave-application-time,
+#leave-application-account{
+    font-size: 30px;
+}
+#input-application-time{
+    width: 100px;
+    height: 100px;
+}
+#cancle,
+#decide{
+    width: 170px;
+    height: 60px;
+    font-size: 30px;
+    margin-top: 400px;
+    border: none;
+    border-radius: 30px;
+
+}
+#cancle{
+    margin-left: 250px;
+    background-color: #E4E4E4;
+}
+#decide{
+    color: white;
+    background-color: #045CFF;
+    margin-left: 400px;
+}
+#cancle:hover{
+    background-color: red;
+    color: white;
+}
+/* 请假申请结束 */
+
+/* 联系我们开始 */
+
+.corrlete-with-us{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    height: 175px;
+    margin-top:100px;
+    margin-left: 30px;
+    
+}
+#corrlete-with-us-title{
+    flex: 1.5;
+    line-height: 75px;
+    font-weight: 900;
+    padding-left: 20px;
+    color: white;
+    font-size: 30px;
+    background-color: #1D54B8 ;
+    border-top: 1px gray solid;
+    border-left: 1px gray solid;
+    border-right:1px gray solid ;
+}
+#opinion,
+#tel{
+    flex: 1;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border-top: 1px gray solid;
+    border-left: 1px gray solid;
+    border-right:1px gray solid ;
+}
+#opinion{
+    background-color: #D9D9D9 ;
+}
+#tel{
+    border-bottom: 1px solid black;
+}
+.opinionone pre{
+    position: relative;
+    top: -175px;
+    left: 365px;
+    width: 1000px;
+    height: 800px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 60px;
+    border-bottom: 1px solid black;
+}
+.teltwo pre{
+    position: relative;
+    top: -175px;
+    left: 365px;
+    width: 1000px;
+    height: 740px;
+    font-size: 30px;
+    padding-top: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: 1px solid black;
+}
+.getnamea,
+.getaccounta,
+.getawardsa
+{
+    position: relative;
+    left: 90px;
+    top: -58px;
+}
+.expoericea{
+    position: relative;
+    left: 10px;
+    left: 10px;
+}
+.getexpericea{
+    position: relative;
+    left: 120px;
+    top: -58px;
+    background-color: transparent;
+}
