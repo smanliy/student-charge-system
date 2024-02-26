@@ -18,7 +18,7 @@ class Department(str, Enum):
 
 class Student(BaseModel):
     name: str
-    position: Optional[str] = None
+    position: Optional[str] = "无"
     awards: Optional[str] = "无"
     account: str
     pwd: str
@@ -27,10 +27,14 @@ class Student(BaseModel):
 
 class AwardsInfo(BaseModel):
     account: str
-    name: str
-    awards: Optional[str] = None
-    experience: Optional[str] = None
+    name: Optional[str] = "无"
+    awards: Optional[str] = "无"
+    experience: Optional[str] = "无"
 
+class AwardsInfo_AwardsID(BaseModel):
+    AwardsInfo_model: AwardsInfo
+    id: str
+    
 class UpdateResponseModel(BaseModel):
     message: str
     position: str

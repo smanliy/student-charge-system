@@ -33,7 +33,7 @@ def account_read_student(student_account: int):
     awardsinfo = cursor.fetchall()
     cursor.close()
     conn.close()
-    if student is None:  # 如果未找到学生，返回404错误
+    if not student:  # 如果未找到学生，返回404错误
         raise HTTPException(status_code=404, detail="Student not found")
     return Student_AwardsInfo(student_Model=Student(**student), awardsInfo_Model=[AwardsInfo(**award) for award in awardsinfo])
 
