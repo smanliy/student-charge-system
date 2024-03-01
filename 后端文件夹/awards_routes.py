@@ -76,7 +76,7 @@ def update_awards(AwardsInfo_id: int, Students_awards: AwardsInfo):
 def delete_awards(AwardsInfo_id: int):
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute("DELETE FROM AwardsInfo WHERE id = %s", (AwardsInfo_id,))
+    cursor.execute("DELETE FROM awardsInfo WHERE id = %s", (AwardsInfo_id,))
     deleted = cursor.rowcount
     cursor.close()
     conn.close()

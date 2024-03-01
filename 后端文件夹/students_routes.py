@@ -122,10 +122,18 @@ def reset_pwd(student_account: int):
 def delete_student(student_account: int):
     conn = get_db_connection()
     cursor = conn.cursor()
+    # 处理students表
     cursor.execute("DELETE FROM students WHERE account = %s", (student_account,))
     deleted = cursor.rowcount
-    cursor.close()
-    conn.close()
     if deleted == 0:
         raise HTTPException(status_code=404, detail="Student not found")
+    cursor.close()
+    # 处理awardsinfo表
+    cursor = conn.cursor(pymysql.cursors.DictCursor)
+    cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (student_account,))
+    awards_ = cursor.fetchall()
+    for award in awards_:
+        cursor.execute("DELETE FROM awardsinfo WHERE id = %s", (award["id"],))
+    cursor.close()
+    conn.close()
     return {"message": "Student deleted successfully"}
