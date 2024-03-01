@@ -110,7 +110,7 @@ def reset_pwd(student_account: int):
     # 查询是否存在账号
     cursor.execute("SELECT account FROM students WHERE account = %s", (student_account,))
     if not cursor.fetchone():
-        raise HTTPException(status_code=400, detail="Student not found")
+        raise HTTPException(status_code=404, detail="Student not found")
     cursor.execute("UPDATE students SET pwd = %s WHERE account = %s",
                    ("123456", student_account))
     cursor.close()

@@ -31,6 +31,10 @@ def read_student_awards():
 def read_student_awards(AwardsInfo_account: int):
     conn = get_db_connection()
     cursor = conn.cursor(pymysql.cursors.DictCursor)
+    # 查询是否存在账号
+    cursor.execute("SELECT account FROM students WHERE account = %s", (AwardsInfo_account,))
+    if not cursor.fetchone():
+        raise HTTPException(status_code=404, detail="Student not found")
     cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (AwardsInfo_account,))
     awards_ = cursor.fetchall()
     combined_info = []  
@@ -51,6 +55,10 @@ def read_student_awards(AwardsInfo_account: int):
 def create_awards(Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
+    # 查询是否存在账号
+    cursor.execute("SELECT account FROM students WHERE account = %s", (AwardsInfo.account,))
+    if not cursor.fetchone():
+        raise HTTPException(status_code=404, detail="Student not found")
     cursor.execute("INSERT INTO awardsinfo (account ,name, awards, experience) VALUES (%s, %s, %s, %s)",
                    (Students_awards.account,Students_awards.name, Students_awards.awards, Students_awards.experience))
     cursor.close()
