@@ -48,6 +48,8 @@ def read_student_awards(AwardsInfo_account: int):
         combined_info.append(AwardsInfo_AwardsID(AwardsInfo_model=AwardsInfo_model_get, id=str(award["id"])))
     cursor.close()
     conn.close()
+    if combined_info == []:
+        raise HTTPException(status_code=404, detail="Student has no awards")
     return combined_info
 
 #添加获奖信息及经历
@@ -56,11 +58,17 @@ def create_awards(Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
     # 查询是否存在账号
-    cursor.execute("SELECT account FROM students WHERE account = %s", (AwardsInfo.account,))
+    cursor.execute("SELECT account FROM students WHERE account = %s", (Students_awards.account,))
     if not cursor.fetchone():
-        raise HTTPException(status_code=404, detail="Student not found")
+        raise HTTPException(status_code=404, detail="Student account not found")
     cursor.execute("INSERT INTO awardsinfo (account ,name, awards, experience) VALUES (%s, %s, %s, %s)",
                    (Students_awards.account,Students_awards.name, Students_awards.awards, Students_awards.experience))
+    # 同步所有awardsinfo表中的所有关联experience字段
+    cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (Students_awards.account,))
+    awards_ = cursor.fetchall()
+    for award in awards_:
+        cursor.execute("UPDATE awardsinfo SET experience = %s WHERE id = %s",
+                    (Students_awards.experience, award.id))
     cursor.close()
     conn.close()
     return {"message": "Student's awards added successfully"}
@@ -70,13 +78,19 @@ def create_awards(Students_awards: AwardsInfo):
 def update_awards(AwardsInfo_id: int, Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
+    # 查询是否存在账号
+    cursor.execute("SELECT account FROM students WHERE account = %s", (Students_awards.account,))
+    if not cursor.fetchone():
+        raise HTTPException(status_code=404, detail="Student account not found")
     cursor.execute("UPDATE awardsinfo SET name = %s, experience = %s, awards = %s WHERE id = %s",
                    (Students_awards.name, Students_awards.experience, Students_awards.awards, AwardsInfo_id))
     updated = cursor.rowcount
+    if updated == 0:
+        raise HTTPException(status_code=404, detail="Student awards not found/No changes have occurred")
+    # 同步所有awardsinfo表中的所有关联experience字段
+
     cursor.close()
     conn.close()
-    if updated == 0:
-        raise HTTPException(status_code=404, detail="Student not found")
     return {"message": "Student's awards updated successfully"}
 
 #删除获奖经历

@@ -1,0 +1,10 @@
+"""
+这些函数用来同步数据库students表的awards字段awardsinfo表中的所有关联experience字段
+"""
+from fastapi import APIRouter, HTTPException
+from models import AwardsInfo, AwardsInfo_AwardsID
+import pymysql
+from database import get_db_connection
+from typing import List
+
+# 修改students表awards字段时触发，同步所有awardsinfo表中的所有关联experience字段

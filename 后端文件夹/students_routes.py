@@ -80,11 +80,12 @@ def update_student(student_account: int, student: Student):
     cursor = conn.cursor()
     cursor.execute("UPDATE students SET name = %s, position = %s, awards = %s, pwd = %s, department = %s, periodNum = %s WHERE account = %s",
                    (student.name, student.position, student.awards, student.pwd, student.department, student.periodNum, student_account))
+    # 检查是否存在学生或是否完成修改
     updated = cursor.rowcount
+    if updated == 0:
+        raise HTTPException(status_code=404, detail="Student not found/No changes have occurred")
     cursor.close()
     conn.close()
-    if updated == 0:
-        raise HTTPException(status_code=404, detail="Student not found")
     return {"message": "Student updated successfully"}
 
 # 修改密码

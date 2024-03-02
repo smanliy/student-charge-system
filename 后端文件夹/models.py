@@ -3,12 +3,14 @@ from typing import Optional, List
 from enum import Enum
 
 class PeriodNum(str, Enum):
+    None_ = "未登记"
     six = "六期"
     seven = "七期"
     eight = "八期"
     admin = "管理员"
 
 class Department(str, Enum):
+    None_ = "未登记"
     data_science = "数据科学"
     Full_stack = "全栈"
     CPU_OS = "CPU&OS"
@@ -17,13 +19,13 @@ class Department(str, Enum):
     secretariat = "秘书处"
 
 class Student(BaseModel):
-    name: str
+    name: Optional[str] = "未登记"
     position: Optional[str] = "无"
     awards: Optional[str] = "无"
     account: str
     pwd: str
-    periodNum: PeriodNum
-    department: Department
+    periodNum: Optional[PeriodNum] = "未登记"
+    department: Optional[Department] = "未登记"
 
 class AwardsInfo(BaseModel):
     account: str
