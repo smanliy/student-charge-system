@@ -61,6 +61,7 @@ def create_awards(Students_awards: AwardsInfo):
     cursor.execute("SELECT account FROM students WHERE account = %s", (Students_awards.account,))
     if not cursor.fetchone():
         raise HTTPException(status_code=404, detail="Student account not found")
+    # 添加奖项信息
     cursor.execute("INSERT INTO awardsinfo (account ,name, awards, experience) VALUES (%s, %s, %s, %s)",
                    (Students_awards.account,Students_awards.name, Students_awards.awards, Students_awards.experience))
     # 同步所有awardsinfo表中的所有关联experience字段
@@ -68,7 +69,10 @@ def create_awards(Students_awards: AwardsInfo):
     awards_ = cursor.fetchall()
     for award in awards_:
         cursor.execute("UPDATE awardsinfo SET experience = %s WHERE id = %s",
-                    (Students_awards.experience, award.id))
+                    (Students_awards.experience, award[0]))
+    # 同步修改students表awards字段
+    cursor.execute("UPDATE students SET awards = %s WHERE account = %s",
+                    (Students_awards.experience, Students_awards.account))
     cursor.close()
     conn.close()
     return {"message": "Student's awards added successfully"}
@@ -78,17 +82,26 @@ def create_awards(Students_awards: AwardsInfo):
 def update_awards(AwardsInfo_id: int, Students_awards: AwardsInfo):
     conn = get_db_connection()
     cursor = conn.cursor()
-    # 查询是否存在账号
+    # 查询是否存在学生账号
     cursor.execute("SELECT account FROM students WHERE account = %s", (Students_awards.account,))
     if not cursor.fetchone():
         raise HTTPException(status_code=404, detail="Student account not found")
+    # 执行修改
     cursor.execute("UPDATE awardsinfo SET name = %s, experience = %s, awards = %s WHERE id = %s",
                    (Students_awards.name, Students_awards.experience, Students_awards.awards, AwardsInfo_id))
+    # 检查是否存在相应获奖信息或是否经行修改
     updated = cursor.rowcount
     if updated == 0:
         raise HTTPException(status_code=404, detail="Student awards not found/No changes have occurred")
     # 同步所有awardsinfo表中的所有关联experience字段
-
+    cursor.execute("SELECT * FROM awardsinfo WHERE account = %s", (Students_awards.account,))
+    awards_ = cursor.fetchall()
+    for award in awards_:
+        cursor.execute("UPDATE awardsinfo SET experience = %s WHERE id = %s",
+                    (Students_awards.experience, award[0]))
+    # 同步修改students表awards字段
+    cursor.execute("UPDATE students SET awards = %s WHERE account = %s",
+                    (Students_awards.experience, Students_awards.account))
     cursor.close()
     conn.close()
     return {"message": "Student's awards updated successfully"}
