@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>查找学生信息</title>
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="css\demo.css" />
+
+  <body>
+    <div class="searchstudent">
+      <div class="searchtop">
+        <div class="system">
+          <li>云顶书院学生管理系统</li>
+        </div>
+        <div class="search-system">
+          <div class="search-system-item" id="search-system-1">
+            <p>查找学生信息</p>
+          </div>
+          <div class="search-system-item" id="search-system-2">
+            <p>管理学生</p>
+          </div>
+          <div class="search-system-item" id="search-system-3">
+            <p>研学安排</p>
+          </div>
+        </div>
+      </div>
+      <div class="kinds">
+        <div class="kind" id="all-kind"><p>全部</p></div>
+        <div class="kind" id="kind-FullStack"><p>全栈</p></div>
+        <div class="kind" id="kind-Datascientist"><p>数据科学</p></div>
+        <div class="kind" id="kind-Java"><p>Java</p></div>
+        <div class="kind" id="kind-CPUOS"><p>CPU&OS</p></div>
+        <div class="kind" id="kind-devise"><p>设计</p></div>
+        <div class="kind" id="kind-secretary"><p>秘书处</p></div>
+        <div class="kind-search">
+          <div class="search-img" id="search-img"></div>
+          <input
+            type="text"
+            class="kind-search-input"
+            id="kind-search-input"
+            placeholder="请输入搜索学生的姓名"
+          />
+        </div>
+      </div>
+      <div class="guids">
+        <div class="guid-1"><p>姓名</p></div>
+        <div class="guid-2"><p>期数</p></div>
+        <div class="guid-3"><p>方向</p></div>
+        <div class="guid-4"><p>获奖经历</p></div>
+        <div class="guid-5"><p>职位</p></div>
+      </div>
+      <div id="stu-ctr"></div>
+    </div>
+    <div class="additional-bottom"></div>
+    <script type="text/javascript" src="scripts\scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.searchstudent {
+  background-color: #85c3fa;
+  width: 500px;
+  /* height: 200px; */
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+.searchtop {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  /* background-color: blue; */
+  top: 0;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/5O0m6QkrY3.jpg);
+}
+.system {
+  height: 60%;
+  width: 100%;
+  /* background-color: brown; */
+}
+.system li {
+  position: relative;
+  top: 6px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.search-system {
+  height: 40%;
+  width: 100%;
+  /* background-color: aliceblue; */
+  display: flex;
+}
+.search-system-item {
+  /* background-color: aquamarine; */
+  width: 70px;
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.search-system-item:active p,
+.search-system-item.active p {
+  color: #0066ff;
+}
+.search-system-item:active {
+  background-color: white;
+  color: #0066ff;
+}
+.search-system-item.active {
+  background-color: white;
+  color: #0066ff;
+}
+.search-system-item p {
+  color: #ffff;
+  font-size: 11px;
+}
+.kinds {
+  display: flex;
+  position: relative;
+  margin-left: 6px;
+  height: 15px;
+  top: 8px;
+}
+.kind p {
+  color: #0085ff;
+  font-size: 10px;
+  font-weight: bold;
+}
+.kind {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  padding: 0 6px;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.kind:active {
+  background-color: #0085ff;
+  color: white;
+}
+.kind.active {
+  background-color: #0085ff;
+  color: white;
+}
+.kind:active p,
+.kind.active p {
+  color: white;
+}
+.kind-search {
+  position: relative;
+  right: -10%;
+  /* height: 100%; */
+  width: 130px;
+  background-color: white;
+  /* border-radius: 5px; */
+  display: flex;
+  /* align-items: center; */
+  border-radius: 43px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.search-img {
+  height: 10px;
+  width: 9px;
+  /* background-color: aliceblue; */
+  left: 3%;
+  top: 13%;
+  position: relative;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/搜索.png);
+  background-size: cover;
+  background-position: center;
+}
+.kind-search-input {
+  flex: 1;
+  /* height: 15px; */
+  width: 90px;
+  /* top: -2px; */
+  /* right: 0px; */
+  position: relative;
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  margin-left: 10px;
+  margin-top: 1px;
+  line-height: 15px;
+  /* padding: 0 3px 3px 3px; */
+  /* display: flex;
+  align-items: center; */
+}
+.kind-search-input::-webkit-input-placeholder {
+  color: #d8d8d8;
+  font-size: 7px;
+  top: 5px;
+  line-height: inherit;
+}
+.guids {
+  position: relative;
+  /* background-color: aquamarine; */
+  width: 420px;
+  height: 15px;
+  margin: 0 auto;
+  top: 16px;
+  /* left: -20px; */
+  display: flex;
+  justify-content: space-between;
+}
+.guid-1,
+.guid-2,
+.guid-3,
+.guid-5 {
+  flex: 0 0 auto;
+  width: calc((46% - 4px) / 4);
+  margin: 0 1px 0 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.guid-4 {
+  flex-grow: 1;
+  margin: 0 1px 0 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.guid-1 p,
+.guid-2 p,
+.guid-3 p,
+.guid-4 p,
+.guid-5 p {
+  font-size: 11px;
+  font-weight: bold;
+}
+.stu-data {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* margin-left: 6px; */
+  margin: 0 auto;
+  /* height: 20px; */
+  min-height: 20px;
+  width: 445px;
+  top: 20px;
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: min-height 0.2s ease;
+}
+.stu-data p {
+  flex-grow: 473;
+  flex-basis: 1px;
+  text-align: center;
+  font-size: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.stu-data.expend {
+  /* min-height: 150px; */
+  /* overflow: visible; */
+  max-height: 500px;
+}
+.stu-data.expend p {
+  /* overflow: visible; */
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 225px;
+}
+.stu-data-button {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  /* background-color: black; */
+  display: inline-block;
+  cursor: pointer;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/箭头-黑.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* .guid-expend{
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 4px;
+  height:4px;
+  z-index: 1;
+  background-color: aquamarine;
+}
+.stu-data:hover.guid-expend{
+  display: block;
+} */
+.additional-bottom {
+  background-color: #85c3fa;
+  width: 500px;
+  height: 20px;
+  position: relative;
+  margin: 0 auto;
+  z-index: -1;
+}
