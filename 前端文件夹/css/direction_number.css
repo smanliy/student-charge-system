@@ -1,0 +1,137 @@
+.searchstudent {
+  background-color: #85c3fa;
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+li {
+  list-style: none;
+}
+.searchtop {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  /* background-color: blue; */
+  top: 0;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/5O0m6QkrY3.jpg);
+}
+.system {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  /* background-color: brown; */
+}
+.symbol{
+  height: 100%;
+  width:10% ;
+  background-image: url(https://renjirui.oss-cn-beijing.aliyuncs.com/yun.png);
+  /* background-color: aliceblue; */
+}
+/* .symbol .img{
+  height: 100%;
+  width: 100%;
+} */
+.system li {
+  position: relative;
+  top: 6px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+}
+.search-system {
+  height: 40%;
+  width: 100%;
+  /* background-color: aliceblue; */
+  display: flex;
+}
+.search-system-item {
+  /* background-color: aquamarine; */
+  width: 70px;
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.search-system-item:active p,
+.search-system-item.active p {
+  color: #0066ff;
+}
+.search-system-item:active {
+  background-color: white;
+  color: #0066ff;
+}
+.search-system-item.active {
+  background-color: white;
+  color: #0066ff;
+}
+.search-system-item p {
+  color: #ffff;
+  font-size: 11px;
+}
+.search-img {
+  height: 10px;
+  width: 9px;
+  /* background-color: aliceblue; */
+  left: 3%;
+  top: 13%;
+  position: relative;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/搜索.png);
+  background-size: cover;
+  background-position: center;
+}
+.department{
+  width: 95%;
+  height: 110px;
+  /* background-color: violet; */
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50%;
+  transform: translate(-50%,0);
+  margin-top: 5%;
+}
+.dirction{
+  width: 30%;
+  height: 60%;
+  margin-top: 10px;
+  background-color:#3685f9;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.dirction-top{
+  height: 70%;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+  font-size: 25px;
+  text-shadow:0 0 5px #000000;
+  font-weight: 700;
+  color: white;
+}
+.dirction a{
+  text-decoration: none;
+}
+.dirction-bottom{
+  height: 30%;
+  width: 50%;
+  margin-left: 50%;
+  font-size: 8px;
+  transform: translate(-50%,0);
+  text-align: center;
+  color: white;
+}
+.total{
+height: 50px;
+width: 50%;
+margin-left: 50%;
+text-align: center;
+font-size: 40px;
+color: black;
+font-weight: 500;
+transform: translate(-50%,0);
+}
