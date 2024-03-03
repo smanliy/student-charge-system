@@ -231,10 +231,18 @@ textarea{
     left: 0px;
 }
 #grayexperice{
+    position: relative;
+    top: -220px;
+    left: 71px;
     width: 600px;
     height: 100px;
     border-radius: 20px;
     background:#D9D9D9;
+}
+.singleExperience{
+    position: relative;
+    left: -48px;
+    top: -154px;
 }
 /* 研学查询 */
 .study-search{

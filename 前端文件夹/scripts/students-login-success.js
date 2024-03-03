@@ -1,3 +1,4 @@
+let account=6678
 //导航栏
 var search=document.getElementsByClassName("search")
 var span=search[0].getElementsByTagName("span")
@@ -35,14 +36,15 @@ for(var i=0;i<span.length;i++){
 // 个人中心开始
 // 个人信息
 axios({
-    url:"http://101.200.73.250:31111/students/999",
+    url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,
     method:"get",
 }).then((result)=>{
-    getname[0].innerHTML=result.data.name
-    getaccount[0].innerHTML=result.data.account
-    getdirection[0].innerHTML=result.data.department
-    getperiod[0].innerHTML=result.data.periodNum
-    getposition[0].innerHTML=result.data.position
+    getname[0].innerHTML=result.data.student_Model.name
+    getaccount[0].innerHTML=result.data.student_Model.account
+    getdirection[0].innerHTML=result.data.student_Model.department
+    getperiod[0].innerHTML=result.data.student_Model.periodNum
+    getposition[0].innerHTML=result.data.student_Model.position
+    console.log(result)
 }).catch((error)=>{
     console.log(error)
 })
@@ -65,24 +67,27 @@ for(var i=1;i<leftspan.length;i++){
 }
 // 修改个人信息
 axios({
-    url:"http://101.200.73.250:31111/students/999",
+    url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,
     method:"get",
 }).then((result)=>{
-    getname[1].value=result.data.name
-    getaccount[1].value=result.data.account
-    getdirection[1].value=result.data.department
-    getperiod[1].value=result.data.periodNum
-    getposition[1].innerHTML=result.data.position
+    getawards[0].value=result.data.student_Model.awards
+    getname[1].value=result.data.student_Model.name
+    getaccount[1].value=result.data.student_Model.account
+    getdirection[1].value=result.data.student_Model.department
+    getperiod[1].value=result.data.student_Model.periodNum
+    getposition[1].innerHTML=result.data.student_Model.position
+    console.log(result.data.student_Model.awards)
+    
     modifybtnInfor.addEventListener("click",function(){
-        if(getpwd[0].value==result.data.pwd){
+        if(getpwd[0].value==result.data.student_Model.pwd){
             axios({
-                url:"http://101.200.73.250:31111/students/999",
+                url:`http://101.200.73.250:31111/students/${account}`,
                 method:"put",
                 data:{
                     name:getname[1].value,
                     pwd:getpwd[0].value,
                     account:getaccount[1].value,
-                    position:getposition[1].innerHTML,
+                    position:getposition[1].value,
                     periodNum:getperiod[1].value,
                     department:  getdirection[1].value,
                     awards:getawards[0].value
@@ -101,60 +106,96 @@ axios({
 })
 // 查看个人奖项
 axios({
-    url:"http://101.200.73.250:31111/awardsinfo/999",
+    url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,
     method:"get",
 }).then((result)=>{
-    getname[3].innerHTML=result.data.name
-    getaccount[3].innerHTML=result.data.account
-    getawards[2].innerHTML=result.data.awards
-    getexperice[0].innerHTML=result.data.experience
+    getname[3].innerHTML=result.data.student_Model.name
+    getaccount[3].innerHTML=result.data.student_Model.account
+    getawards[2].innerHTML=result.data.student_Model.awards
+    getexperice[0].innerHTML+=result.data.awardsInfo_Model[0].experience
 }).catch((error)=>{
     console.log(error)
 })
 // 修改个人奖项
+var q=0
+var t=0
+var arrarr = [];
+var sum = 0
 var modifyinforAwards=document.getElementById("modify-infor-awards")
+var pwdd=document.getElementById("passwordvalue")
 axios({
-        url:"http://101.200.73.250:31111/awardsinfo/2023002145",
+        url:`http://101.200.73.250:31111/awardsinfo/${account}`,
         method:"get",
 }).then((result)=>{
-    getname[4].value=result.data.name
-    getaccount[4].value=result.data.account
-    getawards[3].value=result.data.awards
-    getexperice[1].value=result.data.experience
-}).catch((error)=>{console.log(error)})
-modifyinforAwards.addEventListener("click",function(){
+    getname[4].value=result.data[0].AwardsInfo_model.name
+    getaccount[4].value=result.data[0].AwardsInfo_model.account
+    // 获取获奖经历的id并存在数组中
+    for(let f=0;f<result.data.length;f++){
+        let id=result.data[f].id
+        arrarr.push(id)
+    }
+    console.log(arrarr)
+    sum = result.data.length;
+    let h = getexperice[1].value+result.data[0].AwardsInfo_model.experience
+        getexperice[1].value=h;
+        modifyinforAwards.addEventListener("click",function(){
+            for(let i = 0;i<sum;i++){
+            axios({
+                url:`http://101.200.73.250:31111/awardsinfo/${arrarr[i]}`,
+                method:"put",
+
+                data:{
+                    account: getaccount[4].value,
+                    name: getname[4].value,
+                    experience: getexperice[1].value
+                    }
+                }).then((result)=>{
+                    // 控制只发送一次修改成功的信息
+                        if(result.status===200&&i==sum-1){
+                            alert("修改个人奖项成功")
+                        }
+                                }
+                ).catch((error)=>{console.log(error)})
+            }
+            }
+        )
+    
+}).catch((error)=>{
+    console.log(error,"没有改用户的awards信息")
+    modifyinforAwards.addEventListener("click",function(){
+        console.log("111")
     axios({
-        url:"http://101.200.73.250:31111/awardsinfo/2023002145",
-        method:"put",
+        url:"http://101.200.73.250:31111/awardsinfo/",
+        method:"post",
         data:{
             account: getaccount[4].value,
             name: getname[4].value,
-            awards: getawards[3].value,
             experience: getexperice[1].value
             }
-        }).then((result)=>{
-        if(result.status===200){
-            alert("修改个人奖项成功")
-        }
-        else alert("修改失败")
-        }).catch((error)=>{console.log(error)})
-})
+    }).then((result)=>{console.log("已经为该用户获奖经历相关信息")}).catch((error)=>{console.log("没有为该用户获奖经历相关信息",error)})
+})})
+axios({
+    url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,
+        method:"get",
+}).then((result)=>{console.log(result)}).catch((error)=>{console.log(error)})
+
 // 删除信息
 var deletebtn=document.getElementById("deletebtn")
 axios({
-    url:"http://101.200.73.250:31111/students/999",
+    url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,
     method:"get",
 }).then((result)=>{   
-    getname[2].innerHTML=result.data.name
-    getaccount[2].innerHTML=result.data.account
-    getdirection[2].innerHTML=result.data.department
-    getperiod[2].innerHTML=result.data.periodNum
-    getposition[2].innerHTML=result.data.position
+    getname[2].innerHTML=result.data.student_Model.name
+    getaccount[2].innerHTML=result.data.student_Model.account
+    getdirection[2].innerHTML=result.data.student_Model.department
+    getperiod[2].innerHTML=result.data.student_Model.periodNum
+    getposition[2].innerHTML=result.data.student_Model.position
+    getawards[1].innerHTML=result.data.student_Model.awards
 }).catch((error)=>{
     console.log(error)
 })
 axios({
-    url:"http://101.200.73.250:31111/awardsinfo/999"
+    url:`http://101.200.73.250:31111/awardsinfo/${account}`
 }).then((result)=>{   
     getawards[1].innerHTML=result.data.awards
     getawards[0].value=result.data.awards
@@ -162,27 +203,20 @@ axios({
     console.log(error)
 })
 deletebtn.addEventListener("click",function(){
+    // student表删除信息
     axios({
         method:"delete",
-        url:"http://101.200.73.250:31111/students/999"
+        url:`http://101.200.73.250:31111/students/${account}`
     }).then((result)=>{   
     if(result.status==200){
         alert("你的信息已经成功删除")
     }
-    // console.log(result)
     }).catch((error)=>{
         console.log(error)
     })
-})
-// axios({
-//     url:"http://101.200.73.250:31111/awardsinfo/",
-    
-// }).then((result)=>{   
-    
-//     console.log("获奖信息",result)
-// }).catch((error)=>{
-//     console.log(error)
-// })
+    }
+)
+
 //研学查询开始
 var studysearch=document.getElementsByClassName("study-search")
 var studysearchDiv=studysearch[0].getElementsByTagName("div")
