@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录注册</title>
+    <link rel="stylesheet" href="../css/登录注册.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/登录注册.js"></script>
+</head>
+<body>
+    <div class="background">
+        <!-- 回退箭头,添加a标签实现回退-->
+        <a href="http://127.0.0.1:5500/index.html">
+            <div class="back"></div>
+        </a>
+        <!-- 标题 -->
+        <div class="text">&nbsp;请输入账号密码</div>
+        <form>
+            <input type="text" id="account" placeholder="账 号"><br><br><br>
+            <input type="password" id="password" placeholder="密 码"><br><br><br>
+            <input type="text" id="number" placeholder="验 证 码"><br><br><br>
+            <input type="button" id="ok" value="点 击 确 定" onclick="check()">
+        </form>
+    </div>
+</body>
+</html>
