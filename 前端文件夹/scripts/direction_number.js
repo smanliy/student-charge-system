@@ -1,3 +1,31 @@
+// 点击查看学生信息页面跳转开始
+var searchSystemOne=document.getElementById("search-system-1")
+// 使用DOMContentLoaded事件来确保在尝试获取元素之前，DOM已经完全加载。
+document.addEventListener('DOMContentLoaded', (event) => {  
+  var searchSystemOne = document.getElementById("search-system-1");  
+  if (searchSystemOne) {  
+    searchSystemOne.onclick = function() {  
+      window.location.href="search-student.html"
+    };  
+  } else {  
+    console.error("元素未找到");  
+  }  
+});
+// 点击查看学生信息页面跳转结束
+
+// 点击增加信息页面跳转开始
+document.addEventListener('DOMContentLoaded', (event) => {  
+  var searchSystemFour = document.getElementById("search-system-4");  
+  if (searchSystemFour) {  
+    searchSystemFour.onclick = function() {  
+      window.location.href="增加信息.html"
+    };  
+  } else {  
+    console.error("元素未找到");  
+  }  
+});
+// 点击增加信息页面跳转结束
+
 document.addEventListener("DOMContentLoaded", function () {
   var items = document.querySelectorAll(".search-system-item");
 

@@ -1,3 +1,17 @@
+// 点击管理学生跳转页面设置开始
+var searchSystemTwo=document.getElementById("search-system-2")
+searchSystemTwo.addEventListener("click",function(){
+  window.location.href="direction_number.html"
+})
+// 点击管理学生跳转页面设置结束
+
+// 增加学生信息跳转页面设置开始
+var searchSystemFour=document.getElementById("search-system-4")
+searchSystemFour.addEventListener("click",function(){
+  window.location.href="增加信息.html"
+})
+// 增加学生信息跳转页面设置结束
+
 //search颜色改变函数
 document.addEventListener("DOMContentLoaded", function () {
   var items = document.querySelectorAll(".search-system-item");
@@ -259,3 +273,5 @@ function searchstudet(studentname) {
       console.log(err);
     });
 }
+
+
