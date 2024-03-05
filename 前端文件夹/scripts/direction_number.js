@@ -57,7 +57,7 @@ axios
       for (let a = 0; a < usernumber; a++){
         if (response.data[a].student_Model.department == '全栈') {
           qz++;
-        } else if (response.data[a].student_Model.department == 'Java') {
+        } else if (response.data[a].student_Model.department == 'JAVA') {
           java++;
         } else if (response.data[a].student_Model.department == '数据科学') {
           sk++;
@@ -70,8 +70,8 @@ axios
         }
       };
       dirction_bottom[0].innerHTML = '所在人数：' + qz;
-      dirction_bottom[1].innerHTML = '所在人数：' + java;
-      dirction_bottom[2].innerHTML = '所在人数：' + sk;
+      dirction_bottom[1].innerHTML = '所在人数：' + sk;
+      dirction_bottom[2].innerHTML = '所在人数：' + java;
       dirction_bottom[3].innerHTML = '所在人数：' + cpu;
       dirction_bottom[4].innerHTML = '所在人数：' + sj;
       dirction_bottom[5].innerHTML = '所在人数：' + msc;
