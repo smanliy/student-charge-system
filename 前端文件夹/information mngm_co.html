@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link href="css/information mngm_css/yunyi.css" rel="stylesheet" type="text/css" />
+    <link href="css/information mngm_css/font.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+
+<!-- 主体部分 -->
+
+<body>
+
+    <div class="bg">
+        <div class="title">云顶书院信息管理系统</div>
+        <label class="back">
+            <span class="iconfont">&#xe613;</span>
+        </label>
+        <label id="delete" style="font-size: 35px;color:white;">批量删除</label>
+        <div class="search">
+            <div class="search_img"></div>
+            <input type="text" name="name" id="search_text" placeholder="请输入查找学生的姓名" />
+        </div>
+        <div class="info">
+            <!-- <div class="box">
+                <div class="photo"></div>
+                <div class="name"></div>
+                <div class="intro">
+                    <div class="msg"></div>
+                    <div class="msg"></div>
+                    <div class="msg"></div>
+                    <div class="msg"></div>
+                </div>
+                <label class="button" style="font-size: 25px;color:white;">查看详情</label> -->
+        </div>
+    </div>
+
+    <!-- 查看详情弹窗 -->
+    <div class="information">
+        <div class="photo1"></div>
+        <div class="name1"></div>
+        <div class="intro1">
+            <div class="msg1"></div>
+            <div class="msg1"></div>
+            <div class="msg1"></div>
+            <div class="msg1"></div>
+        </div>
+        <label class="button1" style="font-size: 30px;color:rgb(20, 19, 19);">关闭</label>
+    </div>
+    <!-- 查看详情弹窗 结束-->
+
+
+    <!-- 确认删除 -->
+    <div class="verify">
+        <div class="verify_text" style="font-size: 30px;color:rgb(20, 19, 19);">该同学的信息将会从系统中删除 <br> 是否要继续进行</div>
+        <label class="yes" style="font-size: 30px;color:rgb(20, 19, 19);">确认</label>
+        <label class="no" style="font-size: 30px;color:rgb(20, 19, 19);">取消</label>
+    </div>
+    <!-- 确认删除 结束 -->
+
+
+    <!-- 通过人名找信息弹窗 -->
+    <div class="search_pop">
+        <div class="photo1"></div>
+        <div class="name2"></div>
+        <div class="intro1">
+            <div class="msg2"></div>
+            <div class="msg2"></div>
+            <div class="msg2"></div>
+            <div class="msg2"></div>
+        </div>
+        <label class="button2" style="font-size: 30px;color:rgb(20, 19, 19);">关闭</label>
+    </div>
+    <!-- 通过人名找信息弹窗 -->
+
+    </div>
+    <script src="scripts/information mngm_js/information mngm_co.js"></script>
+</body>
+
+</html>
