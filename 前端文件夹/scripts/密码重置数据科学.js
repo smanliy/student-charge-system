@@ -150,13 +150,7 @@ getData().then((data) => {
   }
     
   };
-  img.onclick = function () {
-    for (let a = 0; a < usernumber; a++) {
-      if (recall.value.length == 1) {
-        console.log(recall.value);
-        if (data[a].student_Model.name.slice(0, 1) == recall.value) {
-
-          for (let b = 0; b < usernumber; b++) {
+  for (let b = 0; b < usernumber; b++) {
             // if (b != a) {
               nameli1[b].style.display = 'none';
               psli[b].style.display = 'none';
@@ -164,6 +158,33 @@ getData().then((data) => {
             // }
             
           }
+  for (a = 0; a < usernumber; a++){
+    
+    if (data[a].student_Model.department == '数据科学') {
+      nameli1[a].style.display = 'block';
+          nameli1[a].style.display = 'flex';
+          psli[a].style.display = 'block';
+          psli[a].style.display = 'flex';
+          restoreli[a].style.display = 'block';
+          restoreli[a].style.display = 'flex';
+    }
+  }
+  img.onclick = function () {
+    for (let b = 0; b < usernumber; b++) {
+            // if (b != a) {
+            nameli1[b].style.display = 'none';
+            psli[b].style.display = 'none';
+            restoreli[b].style.display = 'none';
+            // }
+            
+          }
+    for (let a = 0; a < usernumber; a++) {
+      if (recall.value.length == 1) {
+        console.log(recall.value);
+        if (data[a].student_Model.name.slice(0, 1) == recall.value) {
+
+          
+          if (data[a].student_Model.department == '数据科学'){ 
           nameli1[a].style.display = 'block';
           nameli1[a].style.display = 'flex';
           psli[a].style.display = 'block';
@@ -171,35 +192,30 @@ getData().then((data) => {
           restoreli[a].style.display = 'block';
           restoreli[a].style.display = 'flex';
         }
+        }
       }
-      if (recall.value.length == 2) {
+     else if (recall.value.length == 2) {
         if (data[a].student_Model.name.slice(0, 2) == recall.value) {
-          for (b = 0; b < username; b++){
-             nameli1[b].style.display = 'none';
-              psli[b].style.display = 'none';
-              restoreli[b].style.display = 'none';
-          }
-           nameli1[a].style.display = 'block';
+          if (data[a].student_Model.department == '数据科学') { 
+          nameli1[a].style.display = 'block';
           nameli1[a].style.display = 'flex';
           psli[a].style.display = 'block';
           psli[a].style.display = 'flex';
           restoreli[a].style.display = 'block';
           restoreli[a].style.display = 'flex';
         }
+        }
       }
-      if (recall.value.length == 3) {
+      else if (recall.value.length == 3) {
         if (data[a].student_Model.name.slice(0, 3) == recall.value) {
-          for (b = 0; b < username; b++){
-             nameli1[b].style.display = 'none';
-              psli[b].style.display = 'none';
-              restoreli[b].style.display = 'none';
-          }
-           nameli1[a].style.display = 'block';
+         if (data[a].student_Model.department == '数据科学'){ 
+          nameli1[a].style.display = 'block';
           nameli1[a].style.display = 'flex';
           psli[a].style.display = 'block';
           psli[a].style.display = 'flex';
           restoreli[a].style.display = 'block';
           restoreli[a].style.display = 'flex';
+        }
         }
       }
     }
