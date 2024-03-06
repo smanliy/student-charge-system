@@ -1,4 +1,4 @@
-let account=6678
+let account=localStorage.getItem("i")
 //导航栏
 var search=document.getElementsByClassName("search")
 var span=search[0].getElementsByTagName("span")
@@ -159,7 +159,6 @@ axios({
             }
             }
         )
-    
 }).catch((error)=>{
     console.log(error,"没有改用户的awards信息")
     modifyinforAwards.addEventListener("click",function(){
@@ -216,7 +215,6 @@ deletebtn.addEventListener("click",function(){
     })
     }
 )
-
 //研学查询开始
 var studysearch=document.getElementsByClassName("study-search")
 var studysearchDiv=studysearch[0].getElementsByTagName("div")

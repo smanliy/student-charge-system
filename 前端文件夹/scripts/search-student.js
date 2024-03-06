@@ -2,6 +2,7 @@
 var searchSystemTwo=document.getElementById("search-system-2")
 searchSystemTwo.addEventListener("click",function(){
   window.location.href="direction_number.html"
+  
 })
 // 点击管理学生跳转页面设置结束
 

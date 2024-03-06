@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charge-students-menu</title>
+    <link rel="stylesheet" href="../css/charge-students-menu.css">
+</head>
+<body>
+  <div class="searchstudent">
+    <div class="searchtop">
+      <div class="system">
+        <div class="yundinglogo"></div>
+        <li>云顶书院学生管理系统</li>
+      </div>
+      <div class="search-system">
+        <div class="search-system-item" id="search-system-1">
+          <p>查找学生信息</p>
+        </div>
+        <div class="search-system-item" id="search-system-2">
+          <p>管理学生</p>
+        </div>
+        <div class="search-system-item" id="search-system-3">
+          <p>研学安排</p>
+        </div>
+        <div class="search-system-item" id="search-system-4">
+          <p>增加学生信息</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="center">
+
+    <!-- 下半部分 -->
+        <div class="twobackground">
+          <!-- 目录栏 -->
+          <div class="menu">
+            <div id="menu-1">请假审批</div>
+            <div id="menu-2">违纪情况</div>
+            <div id="menu-3">密码重置</div>
+            <div id="menu-4">信息管理</div>
+            <div id="menu-5">平时表现</div>
+          </div>
+          <!-- 显示总人数 -->
+          <div class="total-num">总人数：<span id="number"></span>
+          </div>
+          
+          <canvas id="myChart"></canvas>
+ 
+        </div>
+    
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../scripts/charge-students-menu.js"></script>
+    
+    
+</body>
+
+</html>
