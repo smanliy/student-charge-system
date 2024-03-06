@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+/* 开始时未500px */
+.searchstudent {
+  background-color: #85c3fa;
+  width: 1200px;
+  /* height: 200px; */
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+.searchtop {
+  position: relative;
+  height: 110px;
+  width: 100%;
+  /* background-color: blue; */
+  top: 0;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/f7becf4b4bfdd46602372afd38c8103.jpg);
+}
+.system {
+  height: 60%;
+  width: 100%;
+  /* background-color: brown; */
+}
+.yundinglogo {
+  /* background-color: pink; */
+  height: 55px;
+  width: 55px;
+  top: 16px;
+  position: absolute;
+  left: 10px;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/yunding--logo.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.system li {
+  position: relative;
+  top: 16px;
+  font-weight: bold;
+  letter-spacing: 15px;
+  font-size: 31px;
+  left: 70px;
+  color: white;
+}
+.search-system {
+  height: 40%;
+  width: 100%;
+  /* background-color: aliceblue; */
+  display: flex;
+}
+.search-system-item {
+  /* background-color: aquamarine; */
+  position: relative;
+  width: 180px;
+  height: 100%;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  left: 12px;
+}
+.search-system-item:active p,
+.search-system-item.active p {
+  color: #0066ff;
+}
+.search-system-item:active {
+  background-color: white;
+  color: #0066ff;
+}
+.search-system-item.active {
+  background-color: white;
+  color: #0066ff;
+}
+.search-system-item p {
+  color: #ffff;
+  font-size: 20px;
+}
+.twobackground{
+    margin: 0 auto;
+    width:1200px;
+    height: 800px;
+    background-image: url(https://typora----magic.oss-cn-beijing.aliyuncs.com/JPXvywJl92.jpg);
+}
+/* 目录栏 */
+.menu{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  line-height: 50px;
+  font-weight: 800;
+  color: white;
+  font-size: 20px;
+  background-color: #0085FF;
+}
+#menu-1,
+#menu-2,
+#menu-3,
+#menu-4,
+#menu-5{
+flex: 1;
+}
+/* 显示总人数 */
+.total-num{
+  position: relative;
+  width: 182px;
+  height: 77px;
+  left: 616px;
+  top: -295px;
+  font-weight: 900;
+  font-size: 25px;
+  text-align: center;
+  line-height: 77px;
+}
+#myChart{
+  position: relative;
+  top: -296px;
+  left: 242px;
+}
