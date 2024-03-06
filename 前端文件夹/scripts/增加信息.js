@@ -50,54 +50,63 @@ let input4 = document.getElementsByTagName("input")[3];
 let input5 = document.getElementsByTagName("input")[4];
 let input6 = document.getElementsByTagName("input")[5];
 let input7 = document.getElementsByTagName("input")[6];
-let button1 = document.getElementById('btn1');
-let button2 = document.getElementsByTagName('button')[1];
+let button1 = document.getElementsByClassName('show')[0];
+let button2 = document.getElementsByTagName('button')[0];
+console.log(button1.src);
 input1.onclick = function () {
     if (input1.value =='请输入学生账号') {
-    input1.value = "";
+      input1.value = "";
+      input1.style.color = "black";
 };
 }
 input2.onclick = function () {
     if (input2.value == '请输入姓名') {
-    input2.value = "";
+      input2.value = "";
+      input2.style.color = "black";
 }
 }
 input3.onclick = function () {
     if (input3.value == '请输入学生期数') {
-    input3.value = '';
+      input3.value = '';
+      input3.style.color = "black";
 }
 }
 input4.onclick = function () {
     if (input4.value == '请输入方向') {
-    input4.value = "";
+      input4.value = "";
+      input4.style.color = "black";
 }
 }
 input5.onclick = function () {
     if (input5.value == '请输入职位') {
-    input5.value = "";
+      input5.value = "";
+      input5.style.color = "black";
 }
 }
 input6.onclick = function () {
     if (input6.value == '请输入获奖名称') {
-    input6.value = "";
+      input6.value = "";
+      input6.style.color = "black";
 }
 }
 input7.onclick = function () {
     if (input7.value == '请输入密码') {
         input7.value = "";
-        input7.type = "password";
+      input7.type = "password";
+      input7.style.color = "black";
 }
 }
 button1.onclick = () => {
-    if (button1.innerHTML == '显示密码') {
-        input7.type = "text";
-        button1.innerHTML = '隐藏密码';
+  if (input7.value != "请输入密码") {
+    if (input7.type == "password") {
+      input7.type = "text";
+      button1.src = 'https://renjirui.oss-cn-beijing.aliyuncs.com/%E7%9C%BC%E7%9D%9B_%E9%9A%90%E8%97%8F_o.png';
     }
-   else if (button1.innerHTML == '隐藏密码') {
-        input7.type = "password";
-        button1.innerHTML = '显示密码';
+    else if (input7.type == 'text') {
+      input7.type = "password";
+      button1.src = "https://renjirui.oss-cn-beijing.aliyuncs.com/%E7%9C%BC%E7%9D%9B_%E6%98%BE%E7%A4%BA_o.png";
     }
-    
+  }
 }
 
 button2.onclick = function () {
