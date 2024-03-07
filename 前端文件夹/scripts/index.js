@@ -35,10 +35,10 @@ left.onclick = function () {
 
 }
 right.onclick = function () {
-    son_left.style.transform = "translate3d(-450px,-30px,-50px)";
+    son_left.style.transform = "translate3d(-360px,0px,-50px)";
     son_left.style.transitionProperty = "transform"
     son_left.style.transitionDuration="0.5s"
-    son_right.style.transform = "translate3d(-400px,-27px,0)";
+    son_right.style.transform = "translate3d(-260px,-50px,0)";
     son_right.style.transitionProperty = "transform";
     son_right.style.transitionDuration = "0.5s";
     icon_adm.style.transform = "transitionZ(-50px)";

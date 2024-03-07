@@ -1,11 +1,15 @@
+body{
+    height: 100vh;
+}
 .background{
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    position: relative;
+    width: 1200px;
+    height: 870px;
+    margin: 0 auto;
     /* 插入背景图片 */
     background-image: url(https://typora--first.oss-cn-huhehaote.aliyuncs.com/%E6%9B%B4%E6%94%B92.png); 
     /* 调整图片尺寸 */
-    background-size: 100% 100%;
+    background-size: 1200px 930px;
 }
 .title{
     /* 调整标题盒子大小，使之居中 */
@@ -22,32 +26,23 @@
     /* 文字外边框--白色 */
     -webkit-text-stroke: 0.5px white;
 }
-/* .jiantou{
-    display: flex;
-    position: relative;
-    top: 300px;
-    width: 1300px;
-    height: 75px;
-    margin:  0 auto;
-    justify-content: space-between;
-} */
 .left{
-    display: none;
-    position: absolute;
-    top: 400px;
-    left: 200px;
-    width: 75px;
-    height: 75px;
+    display:none ;
+    position: relative;
+    top: 370px;
+    left: 80px;
+    width: 65px;
+    height: 65px;
     background-image: url(https://typora--first.oss-cn-huhehaote.aliyuncs.com/%E7%AE%AD%E5%A4%B4-%E9%BB%91.png);
     background-size: 100% 100%;
 }
 .right{
     display: block;
-    position: absolute;
-    top: 400px;
-    left: 1400px;
-    width: 75px;
-    height: 75px;
+    position: relative;
+    top: 370px;
+    left: 1050px;
+    width: 65px;
+    height: 65px;
     background-image: url(https://typora--first.oss-cn-huhehaote.aliyuncs.com/%E7%AE%AD%E5%A4%B4-%E9%BB%91%20-%20%E5%90%91%E5%8F%B3.png);
     background-size: 100% 100%;
 }
@@ -55,9 +50,9 @@
     /* flex布局放置左右两个主体部分 */
     display: flex;
     position: relative;
-    width: 900px;
+    width: 700px;
     height: 400px;
-    top: 350px;
+    bottom:600px ;
     margin: 0 auto;
     /* flex布局样式 */
     justify-content: space-between;
@@ -65,61 +60,60 @@
 }
 .main_adm{
     position: absolute;
-    width: 280px;
-    height: 450px;
+    width: 240px;
+    height: 400px;
     background-color: white;
     /* 圆角边框 */
     border-radius: 20px;
     /* 边框阴影效果 */
     box-shadow: 2px 2px 10px ;
-    margin-top: -300px;
+    margin-top: -200px;
     left: 50%;
     top: 50%;
     margin-left: -150px;
 }
 .main_stu{
     position: absolute;
-    width: 280px;
-    height: 450px;
+    width: 240px;
+    height: 400px;
     background-color: white;
     /* 圆角边框 */
     border-radius: 20px;
     /* 边框阴影效果 */
     box-shadow: 2px 2px 10px ;
-    margin-top: -275px;
+    margin-top: -150px;
     top: 50%;
-    right: -100px;
+    right: -30px;
     transform: translate3d(100px,-50px,-50px);
     perspective: 200px;
 }
 
 .icon_adm{
     position: relative;
-    left: 40px;
+    left: 50px;
     top: 90px;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     /* 插入管理员图片 */
     background-image: url(https://typora--first.oss-cn-huhehaote.aliyuncs.com/%E7%AE%A1%E7%90%86%E5%91%98.png);
     /* 调整图片尺寸 */
-    background-size: 200px 200px;
+    background-size: 150px 150px;
 }
 .icon_stu{
     display: block;
     position: relative;
-    left: 40px;
+    left: 50px;
     top: 90px;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     /* 插入学生图片 */
     background-image: url(https://typora--first.oss-cn-huhehaote.aliyuncs.com/%E5%AD%A6%E7%94%9F.png);
     /* 调整图片尺寸 */
-    background-size: 200px 200px;
+    background-size: 150px 150px;
     transform: translateZ(-50px);
 }
 .text_adm{
     position: relative;
-    left: 15px;
     top: 140px;
     width: 250px;
     height: 60px;
@@ -132,7 +126,6 @@
 }
 .text_stu{
     position: relative;
-    left: 15px;
     top: 140px;
     width: 250px;
     height: 60px;

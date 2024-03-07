@@ -21,9 +21,10 @@ function check() {
       }
       else {
         //用户存在，判断输入的账户密码是否正确
-      let t = true;
-      let user;
-      for (let i = 0; i < msg.length; i++){
+        let t = true;
+        let user;
+        let i;
+      for (i = 0; i < msg.length; i++){
         if (msg[i].student_Model.account == account && msg[i].student_Model.pwd == password) {
           t = false;
           user = msg[i].student_Model.account;
@@ -35,10 +36,19 @@ function check() {
       }
       else {
         console.log("成功");
-        // 将账户存进i内
-        localStorage.setItem('i', user)
-        // let i=localStorage.getItem("i")
-        // console.log(i)
+        // 判断是管理员（除八期外）还是学生（八期）
+        if (msg[i].student_Model.periodNum == "八期") {
+          window.location.href = "http://101.200.73.250/students-login-success.html"
+          let stu_account1 = msg[i].student_Model.account;
+          document.cookie = "stuaccount=" +stu_account1+ "; expires=Session; path=/";
+        }
+        else {
+          window.location.href="http://101.200.73.250/search-student.html"
+        }
+        // 将账户存进k内
+        localStorage.setItem('k', user)
+        // let i=localStorage.getItem("k")
+        // console.log(k)
       }
       }
       
