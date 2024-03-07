@@ -6,7 +6,7 @@ let icon_adm = document.getElementById('icon_adm');
 let icon_stu = document.getElementById('icon_stu');
 
 son_left.onclick = function(){
-    window.location.href = "http://127.0.0.1:5500/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C.html"
+    window.location.href = "http://101.200.73.250/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C.html"
 }
 left.onclick = function () {
     son_left.style.transform = "translate3d(0px,0px,0px)";
@@ -23,7 +23,7 @@ left.onclick = function () {
     son_left.style.pointerEvents="visiblePainted"
 
     son_left.onclick = function(){
-        window.location.href = "http://127.0.0.1:5500/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C.html"
+        window.location.href = "http://101.200.73.250/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C.html"
     }
     
     // son_right.onclick = function(){
@@ -49,7 +49,7 @@ right.onclick = function () {
     son_left.style.pointerEvents = "none"
     son_right.style.pointerEvents="visiblePainted"
     son_right.onclick = function () {
-        window.location.href = "http://127.0.0.1:5500/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C.html"
+        window.location.href = "http://101.200.73.250/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C.html"
         
     }
     

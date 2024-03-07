@@ -5,21 +5,21 @@ let menuThree=document.getElementById("menu-3")
 let menuFour=document.getElementById("menu-4")
 // 跳转到增加信息
 searchFour.addEventListener("click",function(){
-    window.location.href="增加信息.html"
+    window.location.href="http://101.200.73.250/增加信息.html"
     })
 //跳转到查找学生
 menuThree.addEventListener("click",function(){
-        window.location.href="search-student.html"
+        window.location.href="http://101.200.73.250/search-student.html"
         })
 // 跳转到密码重置
 let u=0
 menuThree.addEventListener("click",function(){
-    window.location.href="direction_number.html"
+    window.location.href="http://101.200.73.250/direction_number.html"
     localStorage.setItem("u",u)
     })
 // 跳转到信息管理
 menuFour.addEventListener("click",function(){
-    window.location.href="direction_number.html"
+    window.location.href="http://101.200.73.250/direction_number.html"
     u=1
     localStorage.setItem("u",u)
     // o=localStorage.getItem("u")

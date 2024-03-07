@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   var searchSystemOne = document.getElementById("search-system-1");  
   if (searchSystemOne) {  
     searchSystemOne.onclick = function() {  
-      window.location.href="search-student.html"
+      window.location.href="http://101.200.73.250/search-student.html"
     };  
   } else {  
     console.error("元素未找到");  
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   var searchSystemFour = document.getElementById("search-system-4");  
   if (searchSystemFour) {  
     searchSystemFour.onclick = function() {  
-      window.location.href="增加信息.html"
+      window.location.href="http://101.200.73.250/增加信息.html"
     };  
   } else {  
     console.error("元素未找到");  
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   var searchSystemFour = document.getElementById("search-system-2");  
   if (searchSystemFour) {  
     searchSystemFour.onclick = function() {  
-      window.location.href="charge-students-menu.html"
+      window.location.href="http://101.200.73.250/charge-students-menu.html"
     };  
   } else {  
     console.error("元素未找到");  
@@ -49,52 +49,52 @@ window.onload =function (){
   let mishu=document.getElementById("mishu")
   if(o==1){
     quanzhan.addEventListener("click",function(){
-      window.location.href="information mngm_f stack.html"
+      window.location.href="http://101.200.73.250/information mngm_f stack.html"
     })
 
     shuju.addEventListener("click",function(){
-      window.location.href="information mngm_ai.html"
+      window.location.href="http://101.200.73.250/information mngm_ai.html"
     })
 
     JAVA.addEventListener("click",function(){
-      window.location.href="information mngm_java.html"
+      window.location.href="http://101.200.73.250/information mngm_java.html"
     })
 
     CPUOS.addEventListener("click",function(){
-      window.location.href="information mngm_co.html"
+      window.location.href="http://101.200.73.250/information mngm_co.html"
     })
 
     sheji.addEventListener("click",function(){
-      window.location.href="information mngm_design.html"
+      window.location.href="http://101.200.73.250/information mngm_design.html"
     })
 
     mishu.addEventListener("click",function(){
-      window.location.href="information mngm_sec.html"
+      window.location.href="http://101.200.73.250/information mngm_sec.html"
     })
   }
   else{
     quanzhan.addEventListener("click",function(){
-      window.location.href="密码重置全栈.html"
+      window.location.href="http://101.200.73.250/密码重置全栈.html"
     })
 
     shuju.addEventListener("click",function(){
-      window.location.href="密码重置数据科学.html"
+      window.location.href="http://101.200.73.250/密码重置数据科学.html"
     })
 
     JAVA.addEventListener("click",function(){
-      window.location.href="密码重置Java.html"
+      window.location.href="http://101.200.73.250/密码重置Java.html"
     })
 
     CPUOS.addEventListener("click",function(){
-      window.location.href="密码重置CPU&OS.html"
+      window.location.href="http://101.200.73.250/密码重置CPU&OS.html"
     })
 
     sheji.addEventListener("click",function(){
-      window.location.href="密码重置设计.html"
+      window.location.href="http://101.200.73.250/密码重置设计.html"
     })
 
     mishu.addEventListener("click",function(){
-      window.location.href="密码重置秘书处.html"
+      window.location.href="http://101.200.73.250/密码重置秘书处.html"
     })
   }
 }

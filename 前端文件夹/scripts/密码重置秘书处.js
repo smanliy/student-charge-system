@@ -2,7 +2,7 @@
 window.onload =function (){
   var fanhui=document.getElementById("fanhui")
   fanhui.addEventListener("click",function(){
-    window.location.href="direction_number.html"
+    window.location.href="http://101.200.73.250/direction_number.html"
   })
 }
 
