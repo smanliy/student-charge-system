@@ -12,12 +12,18 @@ menuThree.addEventListener("click",function(){
         window.location.href="search-student.html"
         })
 // 跳转到密码重置
+let u=0
 menuThree.addEventListener("click",function(){
     window.location.href="direction_number.html"
+    localStorage.setItem("u",u)
     })
 // 跳转到信息管理
 menuFour.addEventListener("click",function(){
     window.location.href="direction_number.html"
+    u=1
+    localStorage.setItem("u",u)
+    // o=localStorage.getItem("u")
+    // console.log(o)
     }) 
 //search颜色改变函数
 document.addEventListener("DOMContentLoaded", function () {

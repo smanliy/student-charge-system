@@ -1,3 +1,11 @@
+
+window.onload =function (){
+  var fanhui=document.getElementById("fanhui")
+  fanhui.addEventListener("click",function(){
+    window.location.href="direction_number.html"
+  })
+}
+
 function updataData(account, psli, a) {
     axios({
       method: "put",
