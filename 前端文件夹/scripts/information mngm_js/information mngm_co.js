@@ -1,4 +1,9 @@
-
+window.onload =function (){
+    var fanhui=document.getElementById("fanhui")
+    fanhui.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/direction_number.html"
+    })
+  }
 
 
 //交互部分
@@ -341,7 +346,7 @@ let datas = '';
 
                 
 
-            }, 1000);
+            }, 2000);
             
 
 
