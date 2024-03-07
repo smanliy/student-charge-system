@@ -149,13 +149,7 @@ getData().then((data) => {
   recall.onclick = function () {
     if (recall.value == '请输入姓名') {
       recall.value = '';
-    } else if (recall.value.length == 0) {
-    for (a = 0; a < usernumber; a++){
-              nameli1[a].style.display = 'block';
-              psli[a].style.display = 'block';
-              restoreli[a].style.display = 'block';
     }
-  }
     
   };
   for (let b = 0; b < usernumber; b++) {

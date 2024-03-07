@@ -12,8 +12,8 @@
  }
 
  .background {
-     height: 400px;
-     width: 500px;
+     height: 800px;
+     width: 1200px;
      position: relative;
      left: 50%;
      transform: translate(-50%,0);
@@ -22,7 +22,7 @@
  /*头部开始*/
  .top{
    position: relative;
-   height: 40px;
+   height: 80px;
       width: 100%;
     /* background-image: url("https://typora----magic.oss-cn-beijing.aliyuncs.com/5fa4f658dd714f7f8d9032e1baf54463ad1fc0a823e05c-35silt_fw1200webp.png"); */
     text-align: center;
@@ -32,10 +32,11 @@
  .title {
    position: absolute;  
    padding-left: 10px;
-   height: 40px;
-   width: 98%;
-   font-size: 18px;
-   line-height: 40px;
+   height: 80px;
+   width: 21%;
+   font-size: 25px;
+   font-weight: bold;
+   line-height: 80px;
    color: white;
    text-align: left;
    z-index: 120;
@@ -43,16 +44,16 @@
 
  }
  .top img{
-    height: 40px;
+    height: 80px;
     width: 100%;
  }
  /* 头部结束 */
 
  /* 搜索和返回开始 */
  .button{
-   height:20px;
+   height:40px;
    width: 100%;
-   margin-top: 5px;
+   margin-top: 20px;
 
  }
 .iconfont{
@@ -66,38 +67,38 @@
    
 }
 .search{
-   height: 20px;
+   height: 40px;
    width: 200px;
    float: right;
-   margin-right: 20px;
+   margin-right: 60px;
    border-radius: 20px;
    background-color: white;
    box-shadow: 0 0px 1000px rgba(0, 0, 0, 0.5);
 }
 .search img{
    display: block;
-   height: 20px;
-   width: 25px;
-   margin-left: 25px;
+   height: 40px;
+   width: 35px;
+   margin-left: 20px;
    background-color: white;
    
    border-top-left-radius: 20px;
    border-bottom-left-radius: 20px;
 }
 .recall{
-   height: 19px;
+   height: 40px;
    width: 200px;
    position: relative;
    outline: none;
    left: 40px;
-   top:-22px;
+   top:-40px;
    border-width: 0px;
    border-top-right-radius: 20px;
    border-bottom-right-radius: 20px;
    
 }
 .btn{
-   height: 20px;
+   height: 40px;
    width: 25px;
    background-color: white;
 
@@ -140,8 +141,8 @@
 
 }
 .photo{
-   height: 15px;
-   width:15px;
+   height: 30px;
+   width:30px;
    border-radius: 50%;
    display: inline-block;
    background-color: slategray;
@@ -149,32 +150,34 @@
 li span{
    display: block;
    text-align: center;
-   height: 15px;
+   height: 30px;
+   line-height: 30px;
    margin-left: 10px;
-   font-size: 10px;
+   font-size: 15px;
    
 }
 .name li{
    display: flex;
    justify-content: left;
-   height: 15px;
+   height: 30px;
    margin-left: 10px;
-   margin-top: 15px;
+   margin-top: 30px;
 }
 .password li{
-   height: 15px;
-   margin-top: 15px;
+   height: 30px;
+   margin-top: 30px;
    margin-left: 40px;
-   text-align: left;
-   font-size: 10px;
+   line-height: 30px;
+   text-align: center;
+   font-size: 15px;
 }
 .restore li button{
    background-color:royalblue;
-   height:15px;
-   width: 60px;
+   height:30px;
+   width: 100px;
    margin-right: 20px;
    text-align: center;
-   font-size: 9px;
+   font-size: 15px;
    color: white;
    border-top-left-radius: 5px;
    border-bottom-left-radius: 5px;
@@ -182,32 +185,32 @@ li span{
    border-bottom-right-radius:5px ;
 }
 .restore li{
-   margin-top: 15px;
+   margin-top: 30px;
    display: flex;
-   height: 15px;
+   height: 30px;
    justify-content: right;
 
 }
 
 .prompt{
-   height: 100px;
-   width: 200px;
+   height: 200px;
+   width: 400px;
    position: absolute;
    left:50%;
    transform: translate(-50%,0);
-   top: 200px;
+   top: 300px;
    z-index: 1000;
    background-color: white;
    box-shadow:0px 0px 1000px rgba(0, 0, 0,0.3);
    display: none;
 }
 .tip{
-   height: 50px;
-   width: 150px;
+   height: 120px;
+   width: 250px;
    margin-top: 25px;
    margin-left: 50%;
    transform: translate(-50%,0);
-   font-size: 10px;
+   font-size: 20px;
    text-align: center;
    background-color: white;
 }
@@ -222,9 +225,9 @@ li span{
 }
 .btn2 button{
    background-color: white;
-   width: 40px;
-   height: 20px;
-   font-size: 10px;
+   width: 80px;
+   height: 40px;
+   font-size: 25px;
    border-top-left-radius: 5px;
    border-bottom-left-radius: 5px;
    border-top-right-radius: 5px;

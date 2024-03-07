@@ -16,7 +16,8 @@ li {
     width: 100%;
     /* background-color: blue; */
     top: 0;
-    background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/5O0m6QkrY3.jpg);
+    background-image: url(https://renjirui.oss-cn-beijing.aliyuncs.com/%E6%9B%B4%E6%94%B92.png);
+    background-size: 1200px 100px;
 }
 .yun{
     width: 60px;
@@ -87,7 +88,7 @@ li {
 
 .search-system-item p {
     color: #ffff;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .search-img {
