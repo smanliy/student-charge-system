@@ -1,7 +1,7 @@
 // 点击管理学生跳转页面设置开始
 var searchSystemTwo=document.getElementById("search-system-2")
 searchSystemTwo.addEventListener("click",function(){
-  window.location.href="direction_number.html"
+  window.location.href="charge-students-menu.html"
   
 })
 // 点击管理学生跳转页面设置结束

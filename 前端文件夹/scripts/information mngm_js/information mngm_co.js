@@ -1,4 +1,9 @@
-
+window.onload =function (){
+    var fanhui=document.getElementById("fanhui")
+    fanhui.addEventListener("click",function(){
+      window.location.href="direction_number.html"
+    })
+  }
 
 
 //交互部分
