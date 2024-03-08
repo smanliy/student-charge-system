@@ -26,7 +26,7 @@ left.onclick = function () {
         window.location.href = "http://101.200.73.250/登录注册.html"
     }
     
-    
+
 
 }
 right.onclick = function () {
