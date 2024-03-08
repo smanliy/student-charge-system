@@ -1,0 +1,16 @@
+{
+  "id": "4440055",
+  "name": "tu",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "251934",
+      "name": "fanhui",
+      "font_class": "xiangzuo",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    }
+  ]
+}

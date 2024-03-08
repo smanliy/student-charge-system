@@ -1,14 +1,15 @@
 // 点击管理学生跳转页面设置开始
 var searchSystemTwo=document.getElementById("search-system-2")
 searchSystemTwo.addEventListener("click",function(){
-  window.location.href="direction_number.html"
+  window.location.href="http://101.200.73.250/charge-students-menu.html"
+  
 })
 // 点击管理学生跳转页面设置结束
 
 // 增加学生信息跳转页面设置开始
 var searchSystemFour=document.getElementById("search-system-4")
 searchSystemFour.addEventListener("click",function(){
-  window.location.href="增加信息.html"
+  window.location.href="http://101.200.73.250/增加信息.html"
 })
 // 增加学生信息跳转页面设置结束
 

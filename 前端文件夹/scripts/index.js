@@ -27,6 +27,7 @@ left.onclick = function () {
     }
     
 
+
 }
 right.onclick = function () {
     son_left.style.transform = "translate3d(-360px,0px,-50px)";

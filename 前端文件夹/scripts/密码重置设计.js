@@ -1,23 +1,30 @@
+window.onload =function (){
+  var fanhui=document.getElementById("fanhui")
+  fanhui.addEventListener("click",function(){
+    window.location.href="http://101.200.73.250/direction_number.html"
+  })
+}
 function updataData(account, psli, a) {
     axios({
       method: "put",
       url: `http://101.200.73.250:31111/students/changepwd/${account}`,
 
-    });
-
-  axios
-    .get("http://101.200.73.250:31111/students/getinfo_all/")
-    .then(function (response) {
-      // 处理成功情况
-      psli[a].innerHTML = "密码：" + response.data[a].student_Model.pwd;
-    })
-    .catch(function (error) {
-      // 处理错误情况
-      console.log(error);
-    })
-    .finally(function () {
-      // 总是会执行
-    });
+    }).then(function () {
+    axios
+      .get("http://101.200.73.250:31111/students/getinfo_all/")
+      .then(function (response) {
+        // 处理成功情况
+        console.log(response.data[a].student_Model.pwd);
+        psli[a].innerHTML = "密码：" + response.data[a].student_Model.pwd;
+      })
+      .catch(function (error) {
+        // 处理错误情况
+        console.log(error);
+      })
+      .finally(function () {
+        // 总是会执行
+      })
+  });
 }
 function fn(b,element) {
   for (let a = 0; a < b; a++){
@@ -141,22 +148,10 @@ getData().then((data) => {
   recall.onclick = function () {
     if (recall.value == '请输入姓名') {
       recall.value = '';
-    } else if (recall.value.length == 0) {
-    for (a = 0; a < usernumber; a++){
-              nameli1[a].style.display = 'block';
-              psli[a].style.display = 'block';
-              restoreli[a].style.display = 'block';
     }
-  }
     
   };
-  img.onclick = function () {
-    for (let a = 0; a < usernumber; a++) {
-      if (recall.value.length == 1) {
-        console.log(recall.value);
-        if (data[a].student_Model.name.slice(0, 1) == recall.value) {
-
-          for (let b = 0; b < usernumber; b++) {
+  for (let b = 0; b < usernumber; b++) {
             // if (b != a) {
               nameli1[b].style.display = 'none';
               psli[b].style.display = 'none';
@@ -164,6 +159,35 @@ getData().then((data) => {
             // }
             
           }
+  for (a = 0; a < usernumber; a++){
+    
+    if (data[a].student_Model.department == '设计') {
+      nameli1[a].style.display = 'block';
+          nameli1[a].style.display = 'flex';
+          psli[a].style.display = 'block';
+          psli[a].style.display = 'flex';
+          restoreli[a].style.display = 'block';
+          restoreli[a].style.display = 'flex';
+    }
+  }
+  img.onclick = function () {
+    for (let b = 0; b < usernumber; b++) {
+            // if (b != a) {
+            nameli1[b].style.display = 'none';
+            psli[b].style.display = 'none';
+            restoreli[b].style.display = 'none';
+            // }
+            
+          }
+    for (let a = 0; a < usernumber; a++) {
+      if (recall.value.length == 1) {
+        console.log(recall.value);
+        if (data[a].student_Model.name.slice(0, 1) == recall.value) {
+
+          
+          
+          if (data[a].student_Model.department == '设计') { 
+            
           nameli1[a].style.display = 'block';
           nameli1[a].style.display = 'flex';
           psli[a].style.display = 'block';
@@ -171,35 +195,30 @@ getData().then((data) => {
           restoreli[a].style.display = 'block';
           restoreli[a].style.display = 'flex';
         }
+        }
       }
-      if (recall.value.length == 2) {
+     else if (recall.value.length == 2) {
         if (data[a].student_Model.name.slice(0, 2) == recall.value) {
-          for (b = 0; b < username; b++){
-             nameli1[b].style.display = 'none';
-              psli[b].style.display = 'none';
-              restoreli[b].style.display = 'none';
-          }
-           nameli1[a].style.display = 'block';
+         if (data[a].student_Model.department == '设计') { 
+          nameli1[a].style.display = 'block';
           nameli1[a].style.display = 'flex';
           psli[a].style.display = 'block';
           psli[a].style.display = 'flex';
           restoreli[a].style.display = 'block';
           restoreli[a].style.display = 'flex';
         }
+        }
       }
-      if (recall.value.length == 3) {
+      else if (recall.value.length == 3) {
         if (data[a].student_Model.name.slice(0, 3) == recall.value) {
-          for (b = 0; b < username; b++){
-             nameli1[b].style.display = 'none';
-              psli[b].style.display = 'none';
-              restoreli[b].style.display = 'none';
-          }
-           nameli1[a].style.display = 'block';
+         if (data[a].student_Model.department == '设计'){ 
+          nameli1[a].style.display = 'block';
           nameli1[a].style.display = 'flex';
           psli[a].style.display = 'block';
           psli[a].style.display = 'flex';
           restoreli[a].style.display = 'block';
           restoreli[a].style.display = 'flex';
+        }
         }
       }
     }

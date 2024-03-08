@@ -3,6 +3,7 @@ function check() {
   let account = document.getElementById("account").value;
   let password = document.getElementById("password").value;
   let msg;
+ 
   axios.get('http://101.200.73.250:31111/students/getinfo_all/')
     .then(function (response) {
       // 处理成功情况
@@ -44,7 +45,7 @@ function check() {
           pwd: msg[i].student_Model.pwd
         }).then(response => {
           console.log(response.data.access_token);
-          window.localStorage.setItem("token",response.data)
+          window.localStorage.setItem("token",response.data.access_token)
           // 存储access_token等操作
           // window.localStorage.getItem("token")
         }).catch(error => {
@@ -72,15 +73,16 @@ function check() {
         // 判断是管理员（除八期外）还是学生（八期）
         if (msg[i].student_Model.periodNum == "八期") {
           console.log("八期")
-          window.location.href = "http://101.200.73.250/students-login-success.html"
+          window.location.href = "http://101.200.73.250/students-login-success.ht
+
+        localStorage.setItem('k', user)
+
         }
         else {
           window.location.href="http://101.200.73.250/search-student.html"
         }
         // 将账户存进k内
-        localStorage.setItem('k', user)
-        let k=localStorage.getItem("k")
-        console.log(k)
+
       }
       }
     })

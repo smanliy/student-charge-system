@@ -1,3 +1,5 @@
+var o=localStorage.getItem("u")
+console.log(o)
 // 点击查看学生信息页面跳转开始
 var searchSystemOne=document.getElementById("search-system-1")
 // 使用DOMContentLoaded事件来确保在尝试获取元素之前，DOM已经完全加载。
@@ -5,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   var searchSystemOne = document.getElementById("search-system-1");  
   if (searchSystemOne) {  
     searchSystemOne.onclick = function() {  
-      window.location.href="search-student.html"
+      window.location.href="http://101.200.73.250/search-student.html"
     };  
   } else {  
     console.error("元素未找到");  
@@ -18,13 +20,84 @@ document.addEventListener('DOMContentLoaded', (event) => {
   var searchSystemFour = document.getElementById("search-system-4");  
   if (searchSystemFour) {  
     searchSystemFour.onclick = function() {  
-      window.location.href="增加信息.html"
+      window.location.href="http://101.200.73.250/增加信息.html"
     };  
   } else {  
     console.error("元素未找到");  
   }  
 });
 // 点击增加信息页面跳转结束
+
+// 点击管理学生页面跳转开始
+document.addEventListener('DOMContentLoaded', (event) => {  
+  var searchSystemFour = document.getElementById("search-system-2");  
+  if (searchSystemFour) {  
+    searchSystemFour.onclick = function() {  
+      window.location.href="http://101.200.73.250/charge-students-menu.html"
+    };  
+  } else {  
+    console.error("元素未找到");  
+  }  
+});
+// 点击管理学生页面跳转结束
+window.onload =function (){
+  let quanzhan=document.getElementById("quanzhan")
+  let shuju=document.getElementById("shuju")
+  let JAVA=document.getElementById("JAVA")
+  let CPUOS=document.getElementById("CPU&OS")
+  let sheji=document.getElementById("sheji")
+  let mishu=document.getElementById("mishu")
+  if(o==1){
+    quanzhan.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/information mngm_f stack.html"
+    })
+
+    shuju.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/information mngm_ai.html"
+    })
+
+    JAVA.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/information mngm_java.html"
+    })
+
+    CPUOS.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/information mngm_co.html"
+    })
+
+    sheji.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/information mngm_design.html"
+    })
+
+    mishu.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/information mngm_sec.html"
+    })
+  }
+  else{
+    quanzhan.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/密码重置全栈.html"
+    })
+
+    shuju.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/密码重置数据科学.html"
+    })
+
+    JAVA.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/密码重置Java.html"
+    })
+
+    CPUOS.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/密码重置CPU&OS.html"
+    })
+
+    sheji.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/密码重置设计.html"
+    })
+
+    mishu.addEventListener("click",function(){
+      window.location.href="http://101.200.73.250/密码重置秘书处.html"
+    })
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   var items = document.querySelectorAll(".search-system-item");
@@ -57,7 +130,7 @@ axios
       for (let a = 0; a < usernumber; a++){
         if (response.data[a].student_Model.department == '全栈') {
           qz++;
-        } else if (response.data[a].student_Model.department == 'Java') {
+        } else if (response.data[a].student_Model.department == 'JAVA') {
           java++;
         } else if (response.data[a].student_Model.department == '数据科学') {
           sk++;
@@ -70,8 +143,8 @@ axios
         }
       };
       dirction_bottom[0].innerHTML = '所在人数：' + qz;
-      dirction_bottom[1].innerHTML = '所在人数：' + java;
-      dirction_bottom[2].innerHTML = '所在人数：' + sk;
+      dirction_bottom[1].innerHTML = '所在人数：' + sk;
+      dirction_bottom[2].innerHTML = '所在人数：' + java;
       dirction_bottom[3].innerHTML = '所在人数：' + cpu;
       dirction_bottom[4].innerHTML = '所在人数：' + sj;
       dirction_bottom[5].innerHTML = '所在人数：' + msc;
