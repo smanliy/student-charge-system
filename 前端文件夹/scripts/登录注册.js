@@ -73,7 +73,7 @@ function check() {
         // 判断是管理员（除八期外）还是学生（八期）
         if (msg[i].student_Model.periodNum == "八期") {
           console.log("八期")
-          window.location.href = "http://101.200.73.250/students-login-success.ht
+          window.location.href = "http://101.200.73.250/students-login-success.html"
 
         localStorage.setItem('k', user)
 
