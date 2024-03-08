@@ -3,6 +3,25 @@ function check() {
   let account = document.getElementById("account").value;
   let password = document.getElementById("password").value;
   let msg;
+  const service = axios.create({   
+    timeout: 5000 // 请求超时时间  
+  });  
+    
+  // 请求拦截器  
+  service.interceptors.request.use(  
+    config => {  
+      const token = localStorage.getItem('token');
+     console.log(token) 
+      if (token) {  
+        config.headers['Authorization'] = token;  
+      }  
+      return config;  
+    },  
+    error => {  
+      // 对请求错误做些什么  
+      return Promise.reject(error);  
+    }  
+  );  
   axios.get('http://101.200.73.250:31111/students/getinfo_all/')
     .then(function (response) {
       // 处理成功情况
