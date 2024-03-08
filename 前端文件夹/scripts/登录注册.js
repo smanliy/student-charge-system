@@ -38,19 +38,18 @@ function check() {
         console.log("成功");
         // 判断是管理员（除八期外）还是学生（八期）
         if (msg[i].student_Model.periodNum == "八期") {
-          // window.location.href = "http://101.200.73.250/students-login-success.html"
+          window.location.href = "http://101.200.73.250/students-login-success.html"
           localStorage.setItem('k', user)
-        
           let stu_account1 = msg[i].student_Model.account;
           document.cookie = "stuaccount=" +stu_account1+ "; expires=Session; path=/";
         }
         else {
-          // window.location.href="http://101.200.73.250/search-student.html"
+          window.location.href="http://101.200.73.250/search-student.html"
         }
         // 将账户存进k内
-         localStorage.setItem('k', user)
-        let h=localStorage.getItem("k")
-        console.log("zhanghu",h)
+        
+        // let i=localStorage.getItem("k")
+        // console.log(k)
       }
       }
       
