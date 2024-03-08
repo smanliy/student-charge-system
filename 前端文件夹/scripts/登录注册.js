@@ -22,7 +22,7 @@ function check() {
       return Promise.reject(error);  
     }  
   );  
-  axios.get('http://101.200.73.250:31111/students/getinfo_all/')
+  service.get('http://101.200.73.250:31111/students/getinfo_all/')
     .then(function (response) {
       // 处理成功情况
       //将获取的所有用户信息放在变量msg里
