@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   var searchSystemTwo = document.getElementById("search-system-2");  
   if (searchSystemTwo) {  
     searchSystemTwo.onclick = function() {  
-      window.location.href="http://101.200.73.250/direction_number.html"
+      window.location.href="http://101.200.73.250/charge-students-menu.html"
     };  
   } else {  
     console.error("元素未找到");  
