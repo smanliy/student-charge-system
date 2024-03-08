@@ -2,9 +2,10 @@
   padding: 0;
   margin: 0;
 }
+/* 开始时未500px */
 .searchstudent {
   background-color: #85c3fa;
-  width: 500px;
+  width: 1200px;
   /* height: 200px; */
   margin: 0 auto;
   position: relative;
@@ -17,22 +18,37 @@ li {
 }
 .searchtop {
   position: relative;
-  height: 60px;
+  height: 110px;
   width: 100%;
   /* background-color: blue; */
   top: 0;
-  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/5O0m6QkrY3.jpg);
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/f7becf4b4bfdd46602372afd38c8103.jpg);
 }
 .system {
   height: 60%;
   width: 100%;
   /* background-color: brown; */
 }
+.yundinglogo {
+  /* background-color: pink; */
+  height: 55px;
+  width: 55px;
+  top: 16px;
+  position: absolute;
+  left: 10px;
+  background-image: url(https://zhaofei-123.oss-cn-beijing.aliyuncs.com/yunding--logo.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
 .system li {
   position: relative;
-  top: 6px;
+  top: 16px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 15px;
+  font-size: 31px;
+  left: 70px;
+  color: white;
 }
 .search-system {
   height: 40%;
@@ -42,13 +58,15 @@ li {
 }
 .search-system-item {
   /* background-color: aquamarine; */
-  width: 70px;
+  position: relative;
+  width: 180px;
   height: 100%;
   margin-left: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  left: 12px;
 }
 .search-system-item:active p,
 .search-system-item.active p {
@@ -64,18 +82,18 @@ li {
 }
 .search-system-item p {
   color: #ffff;
-  font-size: 11px;
+  font-size: 20px;
 }
 .kinds {
   display: flex;
   position: relative;
   margin-left: 6px;
-  height: 15px;
+  height: 25px;
   top: 8px;
 }
 .kind p {
   color: #0085ff;
-  font-size: 10px;
+  font-size: 20px;
   font-weight: bold;
 }
 .kind {
@@ -83,10 +101,10 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 2px;
-  padding: 0 6px;
+  margin-left: 6px;
+  padding: 2px 10px;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 17px;
   cursor: pointer;
 }
 .kind:active {
@@ -103,9 +121,9 @@ li {
 }
 .kind-search {
   position: relative;
-  right: -10%;
+  right: -25%;
   /* height: 100%; */
-  width: 130px;
+  width: 312px;
   background-color: white;
   /* border-radius: 5px; */
   display: flex;
@@ -114,8 +132,8 @@ li {
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 .search-img {
-  height: 10px;
-  width: 9px;
+  height: 20px;
+  width: 18px;
   /* background-color: aliceblue; */
   left: 3%;
   top: 13%;
@@ -135,24 +153,24 @@ li {
   outline: none;
   padding: 0;
   background-color: transparent;
-  margin-left: 10px;
-  margin-top: 1px;
-  line-height: 15px;
+  margin-left: 15px;
+  margin-top: 3px;
+  line-height: 25px;
   /* padding: 0 3px 3px 3px; */
   /* display: flex;
   align-items: center; */
 }
 .kind-search-input::-webkit-input-placeholder {
   color: #d8d8d8;
-  font-size: 7px;
+  font-size: 14px;
   top: 5px;
   line-height: inherit;
 }
 .guids {
   position: relative;
   /* background-color: aquamarine; */
-  width: 420px;
-  height: 15px;
+  width: 1008px;
+  height: 36px;
   margin: 0 auto;
   top: 16px;
   /* left: -20px; */
@@ -184,7 +202,7 @@ li {
 .guid-3 p,
 .guid-4 p,
 .guid-5 p {
-  font-size: 11px;
+  font-size: 26px;
   font-weight: bold;
 }
 .stu-data {
@@ -194,13 +212,13 @@ li {
   /* margin-left: 6px; */
   margin: 0 auto;
   /* height: 20px; */
-  min-height: 20px;
-  width: 445px;
-  top: 20px;
+  min-height: 40px;
+  width: 1068px;
+  top: 30px;
   background-color: white;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
   overflow: hidden;
   text-overflow: ellipsis;
   transition: min-height 0.2s ease;
@@ -209,7 +227,7 @@ li {
   flex-grow: 473;
   flex-basis: 1px;
   text-align: center;
-  font-size: 10px;
+  font-size: 26px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -224,7 +242,7 @@ li {
   white-space: normal;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-width: 225px;
+  max-width: 561px;
 }
 .stu-data-button {
   position: relative;
@@ -253,7 +271,7 @@ li {
 } */
 .additional-bottom {
   background-color: #85c3fa;
-  width:500px;
+  width: 1200px;
   height: 20px;
   position: relative;
   margin: 0 auto;
