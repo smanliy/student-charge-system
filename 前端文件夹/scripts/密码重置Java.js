@@ -3,12 +3,12 @@ function updataData(account, psli, a) {
       method: "put",
       url: `http://101.200.73.250:31111/students/changepwd/${account}`,
 
-    });
-
-  axios
+    }).then(function () {
+       axios
     .get("http://101.200.73.250:31111/students/getinfo_all/")
     .then(function (response) {
       // 处理成功情况
+      console.log(response.data[a].student_Model.pwd);
       psli[a].innerHTML = "密码：" + response.data[a].student_Model.pwd;
     })
     .catch(function (error) {
@@ -18,6 +18,9 @@ function updataData(account, psli, a) {
     .finally(function () {
       // 总是会执行
     });
+    } );
+
+ 
 }
 function fn(b,element) {
   for (let a = 0; a < b; a++){

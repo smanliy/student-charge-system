@@ -123,12 +123,14 @@ button2.onclick = function () {
     console.log(data);
     axios.post("http://101.200.73.250:31111/students/",data)
     .then(function (response) {
-        // 处理成功情况
+      // 处理成功情况
+      alert("添加信息成功");
         
     })
     .catch(function (error) {
       // 处理错误情况
       console.log(error);
+      alert("添加信息失败");
     })
     .finally(function () {
       // 总是会执行
