@@ -28,27 +28,27 @@ def register(student: Student):
     return {"message": "Student registered successfully"}
 
 @router.post("/login/", tags=["login_register"])
-# def login(info: UserInfo):
-#     conn = get_db_connection()
-#     cursor = conn.cursor()
-#     cursor.execute("SELECT pwd FROM students WHERE account = %s", (info.account,))
-#     student_pwd = cursor.fetchone()
-#     if student_pwd is None:
-#         raise HTTPException(status_code=404, detail="Account not found")
-#     if student_pwd[0] != info.pwd:
-#         raise HTTPException(status_code=401, detail="Incorrect password")
-#     cursor.close()
-#     conn.close()
-#     return {"message": "Login successful"}
 def login(info: UserInfo):
-    account = validate_user(info)
-    if not account:
-        raise HTTPException(status_code=401,
-                            detail="Incorrect username or password",
-                            headers={"WWW-Authenticate": "Bearer"})
-    token_data = {
-        "account": account,
-    }
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT pwd FROM students WHERE account = %s", (info.account,))
+    student_pwd = cursor.fetchone()
+    if student_pwd is None:
+        raise HTTPException(status_code=404, detail="Account not found")
+    if student_pwd[0] != int(info.pwd):
+        raise HTTPException(status_code=401, detail="Incorrect password")
+    cursor.close()
+    conn.close()
+    return {"message": "Login successful"}
+# def login(info: UserInfo):
+#     account = validate_user(info)
+#     if not account:
+#         raise HTTPException(status_code=401,
+#                             detail="Incorrect username or password",
+#                             headers={"WWW-Authenticate": "Bearer"})
+#     token_data = {
+#         "account": account,
+#     }
 
-    token = jwt.encode(token_data, SECURITY_KEY, ALGORITHMS)
-    return Token(access_token=token, token_type="bearer")
+#     token = jwt.encode(token_data, SECURITY_KEY, ALGORITHMS)
+#     return Token(access_token=token, token_type="bearer")
