@@ -175,7 +175,7 @@ axios({
     }).then((result)=>{
         if(result.status===200){
             alert("已经为该用户获奖经历相关信息")
-        }}).catch((error)=>{console.log("没有为该用户获奖经历相关信息",error)})
+        }}).catch((error)=>{alert("请检查你的密码输入是否正确",error)})
 })})
 axios({
     url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,

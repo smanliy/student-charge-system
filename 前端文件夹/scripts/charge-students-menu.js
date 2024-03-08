@@ -8,7 +8,7 @@ searchFour.addEventListener("click",function(){
     window.location.href="http://101.200.73.250/增加信息.html"
     })
 //跳转到查找学生
-menuThree.addEventListener("click",function(){
+searchOne.addEventListener("click",function(){
         window.location.href="http://101.200.73.250/search-student.html"
         })
 // 跳转到密码重置
