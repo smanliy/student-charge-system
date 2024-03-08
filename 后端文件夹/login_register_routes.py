@@ -1,6 +1,5 @@
 import datetime
 from fastapi import APIRouter, Depends, HTTPException
-from fastapi.security import OAuth2PasswordRequestForm
 import jwt
 import pymysql
 from database import get_db_connection

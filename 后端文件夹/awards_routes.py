@@ -5,7 +5,8 @@ import pymysql
 from database import get_db_connection
 from typing import List
 
-router = APIRouter(dependencies=[Depends(get_current_username)])
+# router = APIRouter(dependencies=[Depends(get_current_username)])
+router = APIRouter()
 
 # 查看所有学生获奖信息
 @router.get("/awardsinfo/", response_model=List[AwardsInfo_AwardsID], tags=["awards"])
