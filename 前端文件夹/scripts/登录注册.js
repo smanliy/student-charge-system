@@ -37,14 +37,12 @@ function check() {
       }
       else {
         console.log("成功");
-                const service = axios.create({   
-    timeout: 5000 // 请求超时时间  
-  });  
-        service.post('http://101.200.73.250:31111/login/', {
+                
+        axios.post('http://101.200.73.250:31111/login/', {
           account: msg[i].student_Model.account,
           pwd: msg[i].student_Model.pwd
         }).then(response => {
-          console.log(response.data.access_token);
+          // console.log(response.data.access_token);
           window.localStorage.setItem("token",response.data.access_token)
           // 存储access_token等操作
           // window.localStorage.getItem("token")
@@ -52,23 +50,23 @@ function check() {
           console.error(error);
         });
 
-  // 请求拦截器  
-  service.interceptors.request.use(  
-    config => {  
+  // // 请求拦截器  
+  // service.interceptors.request.use(  
+  //   config => {  
     
-     if (localStorage.getItem('token')) {
-      config.headers.Authorization = localStorage.getItem('token')
+  //    if (localStorage.getItem('token')) {
+  //     config.headers.Authorization = localStorage.getItem('token')
       
-  }
-  else  console.log("111")
-  return config
+  // }
+  // else  console.log("111")
+  // return config
 
-    },  
-    error => {  
-      // 对请求错误做些什么  
-      return Promise.reject(error);  
-    }  
-  );  
+  //   },  
+  //   error => {  
+  //     // 对请求错误做些什么  
+  //     return Promise.reject(error);  
+  //   }  
+  // );  
 
         // 判断是管理员（除八期外）还是学生（八期）
         if (msg[i].student_Model.periodNum == "八期") {
