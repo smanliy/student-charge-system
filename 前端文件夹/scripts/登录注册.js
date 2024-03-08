@@ -12,10 +12,11 @@ function check() {
     config => {  
       const token = localStorage.getItem('token');
      console.log(token) 
-      if (token) {  
-        config.headers['Authorization'] = token;  
-      }  
-      return config;  
+     if (localStorage.getItem('token')) {
+      config.headers.Authorization = localStorage.getItem('token')
+  }
+  return config
+
     },  
     error => {  
       // 对请求错误做些什么  
