@@ -1,4 +1,5 @@
-let account=localStorage.getItem("i")
+let account=localStorage.getItem("k")
+// console.log(account)
 //导航栏
 var search=document.getElementsByClassName("search")
 var span=search[0].getElementsByTagName("span")
@@ -70,7 +71,7 @@ axios({
     url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,
     method:"get",
 }).then((result)=>{
-    getawards[0].value=result.data.student_Model.awards
+    setTimeout(()=>{getawards[0].value=result.data.student_Model.awards},100)
     getname[1].value=result.data.student_Model.name
     getaccount[1].value=result.data.student_Model.account
     getdirection[1].value=result.data.student_Model.department
@@ -171,7 +172,10 @@ axios({
             name: getname[4].value,
             experience: getexperice[1].value
             }
-    }).then((result)=>{console.log("已经为该用户获奖经历相关信息")}).catch((error)=>{console.log("没有为该用户获奖经历相关信息",error)})
+    }).then((result)=>{
+        if(result.status===200){
+            alert("已经为该用户获奖经历相关信息")
+        }}).catch((error)=>{console.log("没有为该用户获奖经历相关信息",error)})
 })})
 axios({
     url:`http://101.200.73.250:31111/students/getinfo_acc/${account}`,
