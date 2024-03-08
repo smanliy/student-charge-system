@@ -1,10 +1,11 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from depands import get_current_username
 from models import AwardsInfo, Student, UserInfo, Student_AwardsInfo
 import pymysql
 from database import get_db_connection
 from typing import List
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_username)])
 
 # 获取所有学生信息
 @router.get("/students/getinfo_all/", response_model=List[Student_AwardsInfo], tags=["Students"], summary = "获取所有学生信息")

@@ -1,9 +1,10 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from database import get_db_connection
+from depands import get_current_username
 from models import PositionUpdate
 from models import UpdateResponseModel
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(get_current_username)])
 
 # 分配/更新学生职位
 @router.patch("/students/{student_account}/position", response_model=UpdateResponseModel, tags=["position"])
