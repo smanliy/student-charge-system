@@ -10,8 +10,8 @@ function check() {
   // 请求拦截器  
   service.interceptors.request.use(  
     config => {  
-      const token = localStorage.getItem('token');
-     console.log(token) 
+      // const token = localStorage.getItem('token');
+     console.log("111") 
      if (localStorage.getItem('token')) {
       config.headers.Authorization = localStorage.getItem('token')
   }
