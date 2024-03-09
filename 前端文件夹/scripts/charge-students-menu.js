@@ -101,7 +101,7 @@ setTimeout(()=>{
     const myChart = new Chart(ctx, {  
         type: 'bar', // 指定图表类型为条形图  
         data: {  
-            labels: ['全栈', 'CPU&OS', 'JAVA', '数据科学', '秘书处', '设计'], // X轴的标签  
+            labels: ['全栈', 'CPU&OS', 'JAVA', '数据科学', '设计', '秘书处'], // X轴的标签  
             datasets: [{  
                 label: '人数', // 数据集的标签  
                 data: [accountOne, accountTwo, accountThree, accountFour, accountFive, accountSix], // 数据值，这些值将决定条形柱的高度  
