@@ -156,7 +156,10 @@ axios({
                             alert("修改个人奖项成功")
                         }
                                 }
-                ).catch((error)=>{console.log(error)})
+                ).catch((error)=>{
+                    if(i==sum-1)
+                {alert("请检查密码输入是否正确")
+                console.log("修改个人奖项失败",error)}})
             }
             }
         )
@@ -191,7 +194,7 @@ axios({
     getname[2].innerHTML=result.data.student_Model.name
     getaccount[2].innerHTML=result.data.student_Model.account
     getdirection[2].innerHTML=result.data.student_Model.department
-    getperiod[2].innerHTML=result.data.student_Model.periodNum
+    getperiod[1].innerHTML=result.data.student_Model.periodNum
     getposition[2].innerHTML=result.data.student_Model.position
     getawards[1].innerHTML=result.data.student_Model.awards
 }).catch((error)=>{
