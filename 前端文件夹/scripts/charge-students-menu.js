@@ -46,8 +46,8 @@ let number=document.getElementById("number")
 // 获取canvas元素  
 const canvas = document.getElementById('myChart');  
 const ctx = document.getElementById('myChart').getContext('2d');  
-canvas.width = 900; // 宽度500像素  
-canvas.height = 700; // 高度300像素  
+canvas.width = 900; 
+canvas.height = 700; 
 var accountOne=0
 var accountTwo=0
 var accountThree=0
